@@ -1,5 +1,5 @@
 <template>
-    <div class="footer-container">
+    <div class="footer-container container">
 			<div class="row">
 				<div class="col-12 col-sm-6 col-md-4 col-xl-4 col-xxl-4 footer-logo-section justify-align-flex">
 					<div class="logo-desktop">Logo</div>
@@ -76,7 +76,7 @@ export default {
 .footer-container {
 	width: 100vw;
 	background-color: black;
-	padding: 10px 0 5px 0;
+	/* padding: 10px 0 5px 0; */
 }
 
 .footer-logo-section {

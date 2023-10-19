@@ -1,6 +1,6 @@
 <template>
     <div class="social-custom-container">
-        <div class="inner-custom-container">
+        <div class="inner-custom-container container">
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 follow-us-text-container">
                     <div class="follow-us-text">Seguici sui social</div>
