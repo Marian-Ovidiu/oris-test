@@ -69,8 +69,10 @@ export default {
 @import '../assets/css/MainMenuButtons.css';
 
 .change-bg-black {
-    background-color: black !important;
+    /* background-color: black !important; */
+    background-color: rgba(0, 0, 0, 1) !important;
     transition: all 0.3s ease-out;
+    color:white;
 
 }
 
@@ -95,7 +97,7 @@ export default {
 .nav-content {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 0 30px;
     align-items: center;
     position: absolute;
     width: 100%;
@@ -153,6 +155,7 @@ i {
 
     .open-menu {
         opacity: 1;    
+        background-color: white;
         border-bottom: 1px solid lightgray;
     }
 

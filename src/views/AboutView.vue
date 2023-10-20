@@ -1,7 +1,8 @@
 <template>
   <div class="about">
     <MainMenu></MainMenu>
-    <h1>This is an about page</h1>
+    <AboutHeaderSection></AboutHeaderSection>
+    <AboutContentSection></AboutContentSection>
     <Footer></Footer>
   </div>
 </template>
@@ -9,11 +10,16 @@
 <script>
 import MainMenu from '../components/MainMenu.vue'
 import Footer from '../components/Footer.vue'
+import AboutHeaderSection from '@/components/AboutComponents/AboutHeaderSection.vue';
+import AboutContentSection from '@/components/AboutComponents/AboutContentSection.vue';
+
 export default {
-  name: 'AboutView',
+  name: 'AboutView',  
   components: {
     MainMenu,
-    Footer
+    Footer,
+    AboutHeaderSection,
+    AboutContentSection
   }
 }
 </script>
