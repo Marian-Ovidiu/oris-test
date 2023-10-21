@@ -1,12 +1,14 @@
 <template>
     <div class="nav-menu" :class="this.showMobileMenu ? 'change-bg-black' : ''">
         <div class="menu-bars">
-            <div class="logo-desktop">Logo</div>
-            <font-awesome-icon icon="fas fa-bars" @click="showMenu()" style=" font-size: 24px;" />
+            <div class="logo-desktop"></div>
+            <div class="icon">
+                <font-awesome-icon icon="fas fa-bars" class="bars" @click="showMenu()" style=" font-size: 24px;" />
+            </div>
         </div>
 
         <div class="nav-content" :class="this.showMobileMenu ? 'open-menu' : 'closed-menu'">
-            <div class="logo">Logo</div>
+            <div class="logo"></div>
             <ul class="nav-items">
                 <li class="menu-item">
                     <router-link to="/" class="menu-button" style="text-decoration: none;">
@@ -76,6 +78,16 @@ export default {
 
 }
 
+.logo-desktop, .logo {
+    background-image: url('../assets/imgs/oris-logo-text.png');
+    color: black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 100px;
+}
+
 .change-bg-white {
     background-color: white;
 }
@@ -123,6 +135,26 @@ i {
     display: none;
 }
 
+.icon {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: calc(100% - 150px);
+}
+
+/* .bars {
+    position: absolute;
+    top:0;
+    left:0;
+    transform: translate(50%, 50%);
+} */
+@media screen and (min-width: 768px) {
+    .nav-content {
+        transform: translate(0, 0);
+    }
+
+}
+
 
 @media screen and (max-width: 768px) {
     .logo {
@@ -131,6 +163,7 @@ i {
     .menu-bars {
         display: flex;
         justify-content: space-between;
+        justify-items: center;
         width: 100%;
         padding: 10px 30px;
     }

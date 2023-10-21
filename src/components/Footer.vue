@@ -1,8 +1,9 @@
 <template>
-    <div class="footer-container container">
+    <div class="footer-container">
+		<div class="container">
 			<div class="row">
 				<div class="col-12 col-sm-6 col-md-4 col-xl-4 col-xxl-4 footer-logo-section justify-align-flex">
-					<div class="logo-desktop">Logo</div>
+					<div class="logo-desktop"></div>
 				</div>
 				<div class="col-6 col-sm-6 col-md-4 col-xl-4 col-xxl-4 footer-menu-section">
 					<div class="menu-section justify-align-flex ">
@@ -40,6 +41,9 @@
 					</div>
 				</div>
 			</div>
+		</div>	
+
+			
 		</div>
 
 </template>
@@ -100,6 +104,7 @@ export default {
 .social-section {
 	width: 100%;
 	flex-direction: column;
+	justify-content: center;
 }
 
 .social-section,
@@ -149,9 +154,8 @@ export default {
 	}
 
 	.social-section {
-		flex-direction: row;
-		justify-content: space-around;
-		width: 50%;
+		flex-direction: column;
+		justify-content: center;
 		margin: auto;
 	}
 
