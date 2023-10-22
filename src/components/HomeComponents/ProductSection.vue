@@ -41,19 +41,19 @@ export default {
 					name: 'Prodotto 1',
 					description: 'Descrizione del prodotto 1',
 					price: '10.99',
-					imageUrl: '../assets/imgs/slider-1.jpg',
+					imageUrl: '../assets/imgs/fototest-1.jpg',
 				},
 				{
 					name: 'Prodotto 15',
 					description: 'Descrizione del prodotto 15',
 					price: '19.99',
-					imageUrl: '../assets/imgs/slider-2.jpg',
+					imageUrl: '../assets/imgs/fototest-2.jpg',
 				},
 				{
 					name: 'Prodotto 15',
 					description: 'Descrizione del prodotto 15',
 					price: '19.99',
-					imageUrl: '../assets/imgs/slider-3.jpg',
+					imageUrl: '../assets/imgs/fototest-3.jpg',
 				},
 				{
 					name: 'Prodotto 15',
