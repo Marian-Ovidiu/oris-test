@@ -12,18 +12,7 @@
 				<div class="row">
 					<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-3 product-container"
 						v-for="(product, index) in products" :key="index">
-						<div class="product">
-							<div class="product-img" :style="'background-image: url(' + product.imageUrl + ');'"></div>
-							<div class="product-details">
-								<div class="product-price">
-									€<div>{{ product.price }}</div>
-								</div>
-								<div class="product-title">
-									<div>{{ product.name }}</div>
-								</div>
-							</div>
-
-						</div>
+						<ProductCard :product="product"></ProductCard>
 					</div>
 				</div>
 			</div>
@@ -32,8 +21,13 @@
 </template>
 
 <script>
+import ProductCard from '@/components/GlobalComponents/ProductCard'
+
 export default {
 	name: 'ProductSection',
+	components: {
+		ProductCard
+	},
 	data() {
 		return {
 			products: [
@@ -69,14 +63,6 @@ export default {
 				}
 			],
 		};
-	},
-	components: {
-	},
-	mounted() {
-
-	},
-	methods: {
-
 	},
 }
 </script>

@@ -12,37 +12,77 @@
             <ul class="nav-items">
                 <li class="menu-item">
                     <router-link to="/" class="menu-button" style="text-decoration: none;">
-                        <a  style="text-decoration: none;" class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
-                            <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
-                            <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
-                            <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-                            <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-                            <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-                            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Home</span>
+                        <a style="text-decoration: none;"
+                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            <span
+                                class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+                            <span
+                                class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Home</span>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="menu-item">
+                    <router-link to="/products" class="menu-button" style="text-decoration: none;">
+                        <a style="text-decoration: none;"
+                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            <span
+                                class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+                            <span
+                                class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Prodotti</span>
                         </a>
                     </router-link>
                 </li>
                 <li class="menu-item">
                     <router-link to="/about" class="menu-button" style="text-decoration: none;">
-                        <a style="text-decoration: none;" class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
-                            <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
-                            <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
-                            <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-                            <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-                            <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-                            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Su di noi</span>
+                        <a style="text-decoration: none;"
+                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            <span
+                                class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+                            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Su
+                                di noi</span>
                         </a>
                     </router-link>
                 </li>
                 <li class="menu-item">
                     <router-link to="/contact" class="menu-button" style="text-decoration: none;">
-                        <a style="text-decoration: none;" class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
-                            <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
-                            <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
-                            <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-                            <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-                            <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-                            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Contatti</span>
+                        <a style="text-decoration: none;"
+                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            <span
+                                class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                            <span
+                                class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+                            <span
+                                class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+                            <span
+                                class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Contatti</span>
                         </a>
                     </router-link>
                 </li>
@@ -53,16 +93,16 @@
 
 <script>
 export default {
-	data() {
-		return {
-			showMobileMenu: false,
-		};
-	},
-	methods: {
-		showMenu() {
-			this.showMobileMenu = !this.showMobileMenu;
-		},
-	},
+    data() {
+        return {
+            showMobileMenu: false,
+        };
+    },
+    methods: {
+        showMenu() {
+            this.showMobileMenu = !this.showMobileMenu;
+        },
+    },
 };
 </script>
 
@@ -74,11 +114,12 @@ export default {
     /* background-color: black !important; */
     background-color: rgba(0, 0, 0, 1) !important;
     transition: all 0.3s ease-out;
-    color:white;
+    color: white;
 
 }
 
-.logo-desktop, .logo {
+.logo-desktop,
+.logo {
     background-image: url('../assets/imgs/oris-logo-text.png');
     color: black;
     background-size: contain;
@@ -93,8 +134,9 @@ export default {
 }
 
 .relative {
-  position: relative;
+    position: relative;
 }
+
 .menu-bars {
     display: none;
 }
@@ -113,7 +155,7 @@ export default {
     align-items: center;
     position: absolute;
     width: 100%;
-    top:0;
+    top: 0;
     left: 0;
     transform: translate(0, 50%);
 }
@@ -127,7 +169,7 @@ export default {
     padding: 5px;
 }
 
-.nav-items > li {
+.nav-items>li {
     padding: 0 10px;
 }
 
@@ -155,11 +197,11 @@ i {
 
 }
 
-
 @media screen and (max-width: 768px) {
     .logo {
         display: none;
     }
+
     .menu-bars {
         display: flex;
         justify-content: space-between;
@@ -187,7 +229,7 @@ i {
     }
 
     .open-menu {
-        opacity: 1;    
+        opacity: 1;
         background-color: white;
         border-bottom: 1px solid lightgray;
     }
@@ -203,8 +245,8 @@ i {
         flex-direction: column;
     }
 
-    .nav-items > li {
-        margin: 20px;
+    .nav-items>li {
+        margin: 10px;
     }
 
     i {
