@@ -128,7 +128,32 @@ export default {
                             name: '37'
                         }
                     ]
-                }
+                },
+                {
+                    id: 3,
+                    label: 'Prezzo',
+                    selected: false,
+                    filterData: [
+                        {
+                            id: 1,
+                            name: '0-10'
+                        },
+                        {
+                            id: 2,
+                            name: '11-50'
+                        },
+                        {
+                            id: 3,
+                            name: '50-150'
+
+                        },
+                        {
+                            id: 4,
+                            name: 'Oltre 150'
+                        }
+
+                    ]
+                },
             ],
             selectedFilters: []
         };
@@ -247,7 +272,7 @@ export default {
 }
 
 .popup-content {
-    width: 50%;
+    width: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
