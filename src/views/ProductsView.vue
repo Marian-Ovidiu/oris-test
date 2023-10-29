@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <ProductsSection></ProductsSection>
+        <ProductsSection ref="filteredProductsRecevedFunction"></ProductsSection>
     </div>
     <Footer></Footer>
     <div id="filter-popup" class="filter-popup" v-if="isPopupOpen">
@@ -37,7 +37,7 @@
                 <div class="content-popup row">
                     <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6"
                         v-for="(filter, index) in selectedFilter.filterData" :key="index">
-                        <div class="inner-filter" @click="toggleInnerFilter(filter, selectedFilter.id)">
+                        <div class="inner-filter" @click="toggleInnerFilter(filter, selectedFilter.parentId)">
                             {{ filter.name }}
                         </div>
                     </div>
@@ -64,10 +64,16 @@ import MainMenu from '@/components/MainMenu.vue'
 import Footer from '@/components/Footer.vue'
 import ProductsHeaderSection from '@/components/ProductsComponents/ProductsHeaderSection.vue';
 import ProductsSection from '@/components/ProductsComponents/ProductsSection.vue';
-
+import { database } from '@/classes/database.js';
 
 export default {
     name: 'ProductsView',
+    mounted() {
+        const db = new database();
+        this.$data.filters = db.getFilters();
+        this.$data.products = db.getProducts();
+        this.$data.filteredProducts = db.getProducts();
+    },
     components: {
         MainMenu,
         Footer,
@@ -77,84 +83,10 @@ export default {
     data() {
         return {
             isPopupOpen: false,
-            selectedFilter: null,
-            filters: [
-                {
-                    id: 1,
-                    label: 'Brand',
-                    selected: false,
-                    filterData: [
-                        {
-                            id: 1,
-                            name: 'Tommy Hilfiger'
-                        },
-                        {
-                            id: 2,
-                            name: 'Polo Ralph Lauren'
-                        },
-                        {
-                            id: 3,
-                            name: 'Hugo Boss'
-                        }
-                    ]
-                },
-                {
-                    id: 2,
-                    label: 'Taglie',
-                    selected: false,
-                    filterData: [
-                        {
-                            id: 1,
-                            name: '32'
-                        },
-                        {
-                            id: 2,
-                            name: '33'
-                        },
-                        {
-                            id: 3,
-                            name: '34'
-                        },
-                        {
-                            id: 4,
-                            name: '35'
-                        },
-                        {
-                            id: 5,
-                            name: '36'
-                        },
-                        {
-                            id: 6,
-                            name: '37'
-                        }
-                    ]
-                },
-                {
-                    id: 3,
-                    label: 'Prezzo',
-                    selected: false,
-                    filterData: [
-                        {
-                            id: 1,
-                            name: '0-10'
-                        },
-                        {
-                            id: 2,
-                            name: '11-50'
-                        },
-                        {
-                            id: 3,
-                            name: '50-150'
-
-                        },
-                        {
-                            id: 4,
-                            name: 'Oltre 150'
-                        }
-
-                    ]
-                },
-            ],
+            selectedFilter: [],
+            filters: null,
+            products: null,
+            filteredProducts: null,
             selectedFilters: []
         };
     },
@@ -163,35 +95,60 @@ export default {
             filter.selected = !filter.selected;
 
             this.selectedFilter = filter;
+            if (this.selectedFilters.findIndex(obj => obj.parentId === filter.parentId) === -1) {
+                this.selectedFilters.push(filter);
+            }
+
             this.isPopupOpen = true;
 
         },
-        toggleInnerFilter(innerFilter, idFilter) {
-            let indexParentExist = this.selectedFilters.findIndex(obj => obj.parentId === idFilter);
+        toggleInnerFilter(innerFilter, parentId) {
+            let indexParent = this.selectedFilters.findIndex(obj => obj.parentId === parentId);
+            let indexChildExist = null;
 
-            if (indexParentExist === -1) {
-                this.selectedFilters.push({
-                    parentId: idFilter,
-                    childFilters: [
-                        innerFilter
-                    ]
-                });
-
+            if (this.selectedFilters[indexParent].childFilters) {
+                indexChildExist = this.selectedFilters[indexParent].childFilters.findIndex(obj => obj.id === innerFilter.id);
             } else {
-                let indexChildExist = this.selectedFilters[indexParentExist].childFilters.findIndex(obj => obj.id === innerFilter.id);
-
-                if (indexChildExist === -1) {
-                    this.selectedFilters[indexParentExist].childFilters.push(innerFilter);
-                } else {
-                    this.selectedFilters[indexParentExist].childFilters.splice(indexChildExist, 1);
-                }
+                this.selectedFilters[indexParent].childFilters = [];
+                indexChildExist = -1;
             }
 
-            if (indexParentExist !== -1) {
-                if (this.selectedFilters[indexParentExist].childFilters.length <= 0) {
-                    this.selectedFilters.splice(indexParentExist, 1);
-                }
+            if (indexChildExist === -1) {
+                this.selectedFilters[indexParent].childFilters.push(innerFilter);
+            } else {
+                this.selectedFilters[indexParent].childFilters.splice(indexChildExist, 1);
             }
+
+            this.filteredProducts =  this.getFilteredProducts()
+            this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(this.filteredProducts);
+          
+        },
+        getFilteredProducts() {
+            const productsCopy = [...this.products];
+            const filteredProducts = productsCopy.filter((product) => {
+               
+                return this.selectedFilters.every((selectedFilter) => {
+                    const productFilter = product.filters.find((filter) => {
+                        return filter.typeFilter === selectedFilter.parentId;
+                    });
+
+                    
+                   
+                    if (productFilter) {
+                        let finded = selectedFilter.childFilters.find((childFilterId) => {
+                            return productFilter.filters.includes(childFilterId.id);
+                        });
+
+                        if(finded){
+                            return true;
+                        }
+                    } else {
+                        return false;
+                    }
+                });
+            });
+
+            return filteredProducts;
         },
         closePopup() {
             this.isPopupOpen = false;

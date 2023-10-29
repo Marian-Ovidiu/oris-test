@@ -13,47 +13,27 @@
 
 <script>
 
-import ProductCard from '@/components/GlobalComponents/ProductCard.vue'
+import ProductCard from '@/components/GlobalComponents/ProductCard.vue';
+import { database } from '@/classes/database.js';;
+
 export default {
     name: 'ProductsSection',
+    mounted() {
+        const prd = new database();
+        this.$data.products = prd.getProducts();
+    },
     components: {
         ProductCard
     },
     data() {
         return {
-            products: [
-                {
-                    name: 'Prodotto 1',
-                    description: 'Descrizione del prodotto 1',
-                    price: '10.99',
-                    imageUrl: '../assets/imgs/fototest-1.jpg',
-                },
-                {
-                    name: 'Prodotto 15',
-                    description: 'Descrizione del prodotto 15',
-                    price: '19.99',
-                    imageUrl: '../assets/imgs/fototest-2.jpg',
-                },
-                {
-                    name: 'Prodotto 15',
-                    description: 'Descrizione del prodotto 15',
-                    price: '19.99',
-                    imageUrl: '../assets/imgs/fototest-3.jpg',
-                },
-                {
-                    name: 'Prodotto 15',
-                    description: 'Descrizione del prodotto 15',
-                    price: '19.99',
-                    imageUrl: '../assets/imgs/slider-1.jpg',
-                },
-                {
-                    name: 'Prodotto 15',
-                    description: 'Descrizione del prodotto 15',
-                    price: '19.99',
-                    imageUrl: '../assets/imgs/slider-2.jpg',
-                }
-            ],
+            products: null
         };
+    },
+    methods: {
+        filteredProductsReceved(filteredProducts) {
+            this.products = filteredProducts;
+        }
     }
 }
 </script>
