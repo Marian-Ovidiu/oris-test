@@ -93,23 +93,27 @@ export default {
     },
     methods: {
         toggleMainFilter(filter) {
-            filter.selected = !filter.selected;
-
             this.selectedFilter = filter;
-            if (this.selectedFilters.findIndex(obj => obj.parentId === filter.parentId) === -1) {
-                this.selectedFilters.push(filter);
-            }
+            this.selectedFilters.push(filter);
+            
+            let selected = this.selectedFilters.find((f) => f.parentId === filter.parentId);
+            
+            if ('childFilters' in selected && selected.childFilters.length > 0) {
+                filter.selected = true;
+            } else {
+                filter.selected = false;
+            } 
 
             this.isPopupOpen = true;
-
         },
         toggleInnerFilter(innerFilter, parentId) {
-            const selectedFilter = this.selectedFilters.find(obj => obj.parentId === parentId);
+            const selectedFilter = this.selectedFilters.find((f) => f.parentId === parentId);
+
             if (!selectedFilter.childFilters) {
                 selectedFilter.childFilters = [];
             }
 
-            const indexChildExist = selectedFilter.childFilters.findIndex(obj => obj.id === innerFilter.id);
+            const indexChildExist = selectedFilter.childFilters.findIndex((f) => f.id === innerFilter.id);
 
             if (indexChildExist === -1) {
                 selectedFilter.childFilters.push(innerFilter);
@@ -117,36 +121,27 @@ export default {
                 selectedFilter.childFilters.splice(indexChildExist, 1);
             }
 
+            let parentIndex = this.selectedFilters.findIndex((f) => f.parentId === parentId);
+
+            if (parentIndex !== -1) {
+                if ('childFilters' in  this.selectedFilters[parentIndex] &&  this.selectedFilters[parentIndex].childFilters.length > 0) {
+                    this.selectedFilters[parentIndex].selected = true;
+                } else {
+                    this.selectedFilters[parentIndex].selected = false;
+                }
+            }
+
             this.filteredProducts = this.getFilteredProducts();
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(this.filteredProducts);
+            this.isPopupOpen = true;
         },
         getFilteredProducts() {
-            console.log(this.filters);
-            let existingActiveFilter = false;
-            for (let i in this.selectedFilters) {
-                if (this.selectedFilters[i].childFilters.length > 0) {
-                    existingActiveFilter = true;
-                }
-            }
-
-            if (existingActiveFilter) {
-                return this.products.filter(product => {
-                    return this.selectedFilters.every(selectedFilter => {
-                        const productFilter = product.filters.find(filter => filter.typeFilter === selectedFilter.parentId);
-                        return !productFilter ? false : selectedFilter.childFilters.some(childFilter => productFilter.filters.includes(childFilter.id));
-                    });
+            return this.products.filter((product) => {
+                return this.selectedFilters.every((filter) => {
+                    const filterData = filter.childFilters ? filter.childFilters.map((f) => f.id) : [];
+                    return filterData.length === 0 || product.filters[filter.parentId - 1].filters.some((f) => filterData.includes(f));
                 });
-            } else {
-                for (let i in this.selectedFilters) {
-                    if (this.selectedFilters[i].childFilters.length > 0) {
-                        this.selectedFilters[i].childFilters = [];
-                    }
-                }
-
-                return this.products;
-            }
-
-
+            });
         },
         closePopup() {
             this.isPopupOpen = false;

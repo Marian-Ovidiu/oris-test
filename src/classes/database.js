@@ -82,59 +82,59 @@ class database {
             {
                 name: 'Prodotto 1',
                 description: 'Descrizione del prodotto 1',
-                price: '10.99',
+                price: '50.99',
                 imageUrl: '../assets/imgs/fototest-1.jpg',
                 selected: false,
                 filters: [
                     {
                         typeFilter: 1,
-                        filters: [2]
+                        filters: [1]
                     },
                     {
                         typeFilter: 2,
-                        filters: [2, 3]
+                        filters: [2]
                     },
                     {
                         typeFilter: 3,
-                        filters: [2, 3, 4]
+                        filters: [3]
                     }
                 ]
             },
             {
                 name: 'Prodotto 2',
                 description: 'Descrizione del prodotto 2',
-                price: '19.99',
+                price: '79.99',
                 imageUrl: '../assets/imgs/fototest-2.jpg',
                 selected: false,
                 filters: [
                     {
                         typeFilter: 1,
-                        filters: [2]
+                        filters: [1]
                     },
                     {
                         typeFilter: 2,
-                        filters: [2, 3]
+                        filters: [2]
                     },
                     {
                         typeFilter: 3,
-                        filters: [3, 4]
+                        filters: [3]
                     }
                 ]
             },
             {
                 name: 'Prodotto 3',
                 description: 'Descrizione del prodotto 3',
-                price: '19.99',
+                price: '5.99',
                 imageUrl: '../assets/imgs/fototest-3.jpg',
                 selected: false,
                 filters: [
                     {
                         typeFilter: 1,
-                        filters: [1,2,3]
+                        filters: [1]
                     },
                     {
                         typeFilter: 2,
-                        filters: [4,5,6]
+                        filters: [2]
                     },
                     {
                         typeFilter: 3,
@@ -145,42 +145,42 @@ class database {
             {
                 name: 'Prodotto 4',
                 description: 'Descrizione del prodotto 4',
-                price: '19.99',
+                price: '6.99',
                 imageUrl: '../assets/imgs/slider-1.jpg',
                 selected: false,
                 filters: [
                     {
                         typeFilter: 1,
-                        filters: [1, 3]
+                        filters: [1]
                     },
                     {
                         typeFilter: 2,
-                        filters: [2, 3]
+                        filters: [3]
                     },
                     {
                         typeFilter: 3,
-                        filters: [2]
+                        filters: [1]
                     }
                 ]
             },
             {
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
-                price: '19.99',
+                price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
                 filters: [
                     {
                         typeFilter: 1,
-                        filters: [3]
+                        filters: [2]
                     },
                     {
                         typeFilter: 2,
-                        filters: [1, 2, 3]
+                        filters: [3]
                     },
                     {
                         typeFilter: 3,
-                        filters: [2, 4]
+                        filters: [1]
                     }
                 ]
             }
