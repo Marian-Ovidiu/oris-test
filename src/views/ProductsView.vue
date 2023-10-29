@@ -82,12 +82,13 @@ export default {
     },
     data() {
         return {
-            isPopupOpen: false,
-            selectedFilter: [],
             filters: null,
             products: null,
-            filteredProducts: null,
-            selectedFilters: []
+            isPopupOpen: false,
+            selectedFilter: [],
+            selectedFilters: [],
+            filteredProducts: null
+
         };
     },
     methods: {
@@ -103,52 +104,49 @@ export default {
 
         },
         toggleInnerFilter(innerFilter, parentId) {
-            let indexParent = this.selectedFilters.findIndex(obj => obj.parentId === parentId);
-            let indexChildExist = null;
-
-            if (this.selectedFilters[indexParent].childFilters) {
-                indexChildExist = this.selectedFilters[indexParent].childFilters.findIndex(obj => obj.id === innerFilter.id);
-            } else {
-                this.selectedFilters[indexParent].childFilters = [];
-                indexChildExist = -1;
+            const selectedFilter = this.selectedFilters.find(obj => obj.parentId === parentId);
+            if (!selectedFilter.childFilters) {
+                selectedFilter.childFilters = [];
             }
+
+            const indexChildExist = selectedFilter.childFilters.findIndex(obj => obj.id === innerFilter.id);
 
             if (indexChildExist === -1) {
-                this.selectedFilters[indexParent].childFilters.push(innerFilter);
+                selectedFilter.childFilters.push(innerFilter);
             } else {
-                this.selectedFilters[indexParent].childFilters.splice(indexChildExist, 1);
+                selectedFilter.childFilters.splice(indexChildExist, 1);
             }
 
-            this.filteredProducts =  this.getFilteredProducts()
+            this.filteredProducts = this.getFilteredProducts();
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(this.filteredProducts);
-          
         },
         getFilteredProducts() {
-            const productsCopy = [...this.products];
-            const filteredProducts = productsCopy.filter((product) => {
-               
-                return this.selectedFilters.every((selectedFilter) => {
-                    const productFilter = product.filters.find((filter) => {
-                        return filter.typeFilter === selectedFilter.parentId;
+            console.log(this.filters);
+            let existingActiveFilter = false;
+            for (let i in this.selectedFilters) {
+                if (this.selectedFilters[i].childFilters.length > 0) {
+                    existingActiveFilter = true;
+                }
+            }
+
+            if (existingActiveFilter) {
+                return this.products.filter(product => {
+                    return this.selectedFilters.every(selectedFilter => {
+                        const productFilter = product.filters.find(filter => filter.typeFilter === selectedFilter.parentId);
+                        return !productFilter ? false : selectedFilter.childFilters.some(childFilter => productFilter.filters.includes(childFilter.id));
                     });
-
-                    
-                   
-                    if (productFilter) {
-                        let finded = selectedFilter.childFilters.find((childFilterId) => {
-                            return productFilter.filters.includes(childFilterId.id);
-                        });
-
-                        if(finded){
-                            return true;
-                        }
-                    } else {
-                        return false;
-                    }
                 });
-            });
+            } else {
+                for (let i in this.selectedFilters) {
+                    if (this.selectedFilters[i].childFilters.length > 0) {
+                        this.selectedFilters[i].childFilters = [];
+                    }
+                }
 
-            return filteredProducts;
+                return this.products;
+            }
+
+
         },
         closePopup() {
             this.isPopupOpen = false;
