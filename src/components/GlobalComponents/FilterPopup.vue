@@ -43,12 +43,15 @@ export default {
     watch: {
         isPopupOpen(isPopupOpen) {
             this.localIsPopupOpen = isPopupOpen;
+        },
+        selectedFilters(selectedFilters) {
+            this.localSelectedFilters = selectedFilters;
         }
     },
     methods: {
         closePopup() {
             this.localIsPopupOpen = false;
-            this.$emit('isPopupOpenEvent',this.localIsPopupOpen);
+            this.$emit('isPopupOpenEvent', this.localIsPopupOpen);
         },
         toggleInnerFilter(innerFilter, parentId) {
             const selectedFilter = this.localSelectedFilters.find((f) => f.parentId === parentId);
@@ -81,9 +84,8 @@ export default {
             this.$emit('filteredProductsReceved', {
                 filteredProducts: this.localFilteredProducts,
                 selectedFilters: this.localSelectedFilters,
-                filteredProducts: this.localFilteredProducts,
                 isPopupOpen: this.localIsPopupOpen
-            } );
+            });
         },
         getFilteredProducts() {
             return this.products.filter((product) => {
