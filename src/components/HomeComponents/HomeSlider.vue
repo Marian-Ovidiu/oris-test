@@ -37,17 +37,17 @@ export default {
         return {
             sliderImages: [
                 {
-                    img: '../assets/imgs/slider-1.jpg',
+                    img: '../assets/imgs/real-slider-1.jpeg',
                     text: 'Testo di test 1',
                     description: 'Mini descrizione'
                 },
                 {
-                    img: '../assets/imgs/slider-2.jpg',
+                    img: '../assets/imgs/real-slider-2.jpeg',
                     text: 'Testo di test 2',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
                 },
                 {
-                    img: '../assets/imgs/slider-3.jpg',
+                    img: '../assets/imgs/real-slider-3.jpeg',
                     text: 'Testo di test 1',
                     description: null
                 }
@@ -72,7 +72,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .images-container {
-    height: 75vh;
+    height: calc(100vh - 100px);
     width: 100%;
     background-size: cover;
     background-position: center;
