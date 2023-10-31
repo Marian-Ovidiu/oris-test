@@ -23,7 +23,7 @@ export default {
 .product {
     width: 90%;
     height: 450px;
-    margin: auto;
+    margin: 10px auto;
 }
 
 @media screen and (max-width: 576px) {

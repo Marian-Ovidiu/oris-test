@@ -1,17 +1,19 @@
 <template>
     <MainMenu></MainMenu>
     <ProductsHeaderSection></ProductsHeaderSection>
-    <div class="container product-container">
+    <div class="container">
         <div class="row">
             <div class="col-12 filter-container">
                 <div class="filter" v-for="(filter, index) in filters" :key="index" :class="{ 'selected': filter.selected }"
                     @click="toggleMainFilter(filter)">
-                    {{ filter.label }}
+                    {{ filter.label }} 
+                    <span v-if="filter.childFiltersCounter"
+                    style="background-color: black; color: white; margin-left: 5px; padding: 3px">{{ filter.childFiltersCounter }}</span>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row"  v-if="innerFilters.length > 0">
             <div class="col-12 inner-filter-container">
                 <div class="inner-filter" v-for="(filter, index) in innerFilters" :key="index"
                     @click="deleteInnerFilter(filter)">
@@ -19,7 +21,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="row" v-if="filteredProducts.length > 0">
             <div class="col-12 items-counter">
                 <div class="counter">
@@ -27,8 +29,9 @@
                 </div>
             </div>
         </div>
-
-        <ProductsSection ref="filteredProductsRecevedFunction"></ProductsSection>
+        <div class="product-container">
+            <ProductsSection ref="filteredProductsRecevedFunction"></ProductsSection>
+        </div>
     </div>
     <Footer></Footer>
     <FilterPopup :isPopupOpen="isPopupOpen" :selectedFilter="selectedFilter" :selected-filters="selectedFilters"
@@ -115,6 +118,17 @@ export default {
         filteredProductsRecevedFunction(data) {
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(data.filteredProducts);
             this.selectedFilters = data.selectedFilters;
+            
+            for(let i in this.selectedFilters){
+                if ('childFilters' in this.selectedFilters[i]){
+                    this.selectedFilters[i].childFiltersCounter = this.selectedFilters[i].childFilters.length;
+                    let index = this.filters.findIndex((f) => f.parentId === this.selectedFilters[i]);
+                    if(index !== -1){
+                        this.filters[index].childFiltersCounter = this.selectedFilters[i].childFiltersCounter;
+                    }
+                }
+            }
+
             this.filteredProducts = data.filteredProducts;
             this.isPopupOpen = data.isPopupOpen
             this.innerFilters;
@@ -139,19 +153,32 @@ export default {
                     }
                 }
             }
-            console.log('diocanea');
             this.filteredProducts = this.$refs.getFilteredProducts.getFilteredProducts();
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(this.filteredProducts);
+
+            for(let i in this.selectedFilters){
+                if ('childFilters' in this.selectedFilters[i]){
+                    this.selectedFilters[i].childFiltersCounter = this.selectedFilters[i].childFilters.length;
+                    let index = this.filters.findIndex((f) => f.parentId === this.selectedFilters[i]);
+                    if(index !== -1){
+                        this.filters[index].childFiltersCounter = this.selectedFilters[i].childFiltersCounter;
+                    }
+                }
+            }
         }
     }
 }
 </script>
 
 <style scoped>
+.product-container {
+    margin: auto;
+    width: 90%;
+}
+
 .selected {
-    background-color: gray;
-    color: white;
-    border: none !important;
+    background-color: lightgray;
+    font-weight: bolder;
 }
 
 .filter-container {
@@ -217,6 +244,11 @@ export default {
     height: 100vh;
     z-index: 9999;
     position: absolute;
+}
 
+@media (max-width: 568px) {
+    .product-container {
+        width: 70%;
+    }
 }
 </style>
