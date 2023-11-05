@@ -1,10 +1,15 @@
 <template>
     <div class="row">
         <div class="col-12 products-container">
-            <div class="row">
+            <div class="row" v-if="products !== null && products.length > 0">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-3 content-products"
                     v-for="(product, index) in products" :key="index">
                     <ProductCard :product="product"></ProductCard>
+                </div>
+            </div>
+            <div class="row" v-else>
+                <div class="col-12 no-products">
+                    Nessun prodotto trovato, prova a cambiare i filtri
                 </div>
             </div>
         </div>
@@ -42,5 +47,10 @@ export default {
 .content-products {
     display: flex;
     flex-wrap: wrap;
+}
+
+.no-products {
+   height: 150px;
+   line-height: 50px;
 }
 </style>

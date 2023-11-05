@@ -106,6 +106,7 @@ export default {
             return this.innerFilters;
         },
         deleteInnerFilter(innerFilter){
+            innerFilter.selected = false;
             const parentComponent = this.$parent;
             parentComponent.deleteInnerFilter(innerFilter);
         }
@@ -163,7 +164,6 @@ export default {
 .inner-filter {
     border: 1px solid black;
     padding: 5px 10px;
-    min-width: 50px;
     height: 35px;
     margin: 0 5px;
 }

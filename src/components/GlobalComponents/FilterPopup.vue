@@ -13,8 +13,8 @@
             <div class="container-fluid">
                 <div class="content-popup row">
                     <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6"
-                        v-for="(filter, index) in selectedFilter.filterData" :key="index">
-                        <div class="inner-filter" @click="toggleInnerFilter(filter, selectedFilter.parentId)">
+                        v-for="(filter, index) in selectedFilter.filterData" :key="index" >
+                        <div class="inner-filter" @click="toggleInnerFilter(filter, selectedFilter.parentId)" :class="{ 'selected':  filter.selected }">
                             {{ filter.name }}
                         </div>
                     </div>
@@ -54,6 +54,7 @@ export default {
             this.$emit('isPopupOpenEvent', this.localIsPopupOpen);
         },
         toggleInnerFilter(innerFilter, parentId) {
+            console.log(this.localSelectedFilters);
             const selectedFilter = this.localSelectedFilters.find((f) => f.parentId === parentId);
 
             if (!selectedFilter.childFilters) {
@@ -64,8 +65,10 @@ export default {
 
             if (indexChildExist === -1) {
                 selectedFilter.childFilters.push(innerFilter);
+                innerFilter.selected = true;
             } else {
                 selectedFilter.childFilters.splice(indexChildExist, 1);
+                innerFilter.selected = false;
             }
 
             let parentIndex = this.localSelectedFilters.findIndex((f) => f.parentId === parentId);
@@ -100,6 +103,10 @@ export default {
 </script>
 
 <style scoped>
+.selected {
+    background-color: lightgray;
+    font-weight: bolder;
+}
 #filter-popup.container-fluid:first-child {
     max-height: 350px !important;
     overflow: scroll !important;
