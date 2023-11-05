@@ -1,18 +1,24 @@
 <template>
-    <div class="home-categories">
-        <div class="inner-categories">
-            <div class="category-box" v-for="item in categoriesData" :key="item">
-                <div class="image-ground" :style="'background-image: url(' + item.img + ');'">
-                    <div class="dark-cover">
-                        <div class="categories-content">
-                            <h1>{{ item.text }}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="home-categories">
+		<div class="row">
+			<div class="col-lg-4 col-xl-4 col-xxl-4" v-for="(item, index) in categoriesData"
+				:class="{ 'col-md-6 col-sm-6 col-6': index < 2, 'col-md-12 col-sm-12 col-12 max-width-full': index === 2 }"
+				:key="item">
+				<div class="category-box" :class="{ 'change-height': index === 2}">
+					<div class="image-ground" :style="'background-image: url(' + item.img + ');'">
+						<div class="dark-cover">
+							<div class="categories-content">
+								<h1>{{ item.text }}</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
+  
+  
 
 <script>
 export default {
@@ -59,16 +65,15 @@ export default {
 }
 
 .inner-categories {
-	width: 90%;
-	margin: auto;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .category-box {
-	width: 30%;
+	width: 100%;
 	height: 600px;
 	background-size: cover;
+	margin: auto;
 }
 
 .image-ground {
@@ -82,26 +87,27 @@ export default {
 	background-repeat: no-repeat;
 }
 
-.image-ground > .dark-cover > .categories-content > h1{
+.image-ground>.dark-cover>.categories-content>h1 {
 	position: relative;
-    z-index: 1;
+	z-index: 1;
 }
 
 .image-ground::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit;
-  background-size: cover;
-  transform-origin: center;
-  transition: transform 0.4s ease-in-out;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: inherit;
+	background-size: cover;
+	transform-origin: center;
+	transition: transform 0.4s ease-in-out;
 }
+
 .image-ground:focus::after,
 .image-ground:hover::after {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .dark-cover {
@@ -125,72 +131,25 @@ export default {
 	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 1200px) {
-	.category-box {
-		height: 450px;
-		min-width: 30%;
-		margin: 15px 10px;
-	}
-
-	.inner-categories {
-		width: 95%;
-		margin: auto;
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
-}
-
 @media screen and (max-width: 992px) {
 	.category-box {
-		height: 550px;
-		min-width: 45%;
-		margin: 15px 10px;
-	}
-
-	.category-box:last-child {
-		width: 100%;
-		height: 300px;
-	}
-
-	.inner-categories {
-		width: 95%;
-		margin: auto;
-		display: flex;
-		align-content: center;
-	}
-}
-
-@media screen and (max-width: 600px) {
-	.category-box, .category-box:last-child {
-		height: 450px;
-		width: 85%;
-		margin: 15px 10px;
-	}
-
-	.inner-categories {
-		width: 85%;
-		max-width: 90%;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		align-content: center;
-	}
-}
-
-@media screen and (max-width: 300px) {
-	.category-box, .category-box:last-child {
+		margin: 15px auto;
 		height: 350px;
-		width: 100%;
-		margin: 15px 10px;
 	}
 
-	.inner-categories {
-		width: 95%;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		align-content: center;
+	.change-height {
+		height: 200px !important;
+		margin: 0 !important;
+		
 	}
+	.max-width-full {
+		width: 100% !important;
+		height: 200px !important;
+		padding: 0 10px !important;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	
 }
 </style>
