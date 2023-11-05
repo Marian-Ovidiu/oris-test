@@ -81,7 +81,7 @@ class database {
         this.products = [
             {
                 name: 'Prodotto 1',
-                description: 'Descrizione del prodotto 1',
+                description: 'Descrizione del prodotto numero 1',
                 price: '50.99',
                 imageUrl: '../assets/imgs/fototest-1.jpg',
                 selected: false,

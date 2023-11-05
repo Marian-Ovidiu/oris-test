@@ -2,11 +2,14 @@
     <div class="product">
         <div class="product-img" :style="'background-image: url(' + product.imageUrl + ');'"></div>
         <div class="product-details">
+            <div class="product-title">
+                <div><strong> {{ product.name }}</strong></div>
+            </div>
+            <div class="product-description">
+                <div>{{ truncatedDescription }}</div>
+            </div>
             <div class="product-price">
                 €<div>{{ product.price }}</div>
-            </div>
-            <div class="product-title">
-                <div>{{ product.name }}</div>
             </div>
         </div>
     </div>
@@ -15,7 +18,16 @@
 <script>
 export default {
     name: 'ProductCart',
-    props: ['product']
+    props: ['product'],
+    computed: {
+    truncatedDescription() {
+      if (this.product.description.length > 26) {
+        return this.product.description.slice(0, 26) + "...";
+      } else {
+        return this.product.description;
+      }
+    },
+  },
 }
 </script>
 
@@ -26,9 +38,45 @@ export default {
     margin: 10px auto;
 }
 
-@media screen and (max-width: 576px) {
+.product-img {
+    width: 100%;
+    height: 80%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.product-details {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.product-title {
+    width: 100%;
+}
+.product-description {
+    font-size: 14px;
+}
+.product-price {
+    padding: 5px 0;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 568px) {
     .product {
-        width: 100%;
+        width: 178px;
+        height: 376px;
+    }
+
+    .product-img {
+        height: 255px;
+    }
+
+    .product-details {
+        height: 121px;
     }
 }
 
@@ -50,36 +98,5 @@ export default {
         height: 550px;
         margin: auto;
     }
-}
-
-.product-img {
-    width: 100%;
-    height: 85%;
-    background-size: cover;
-    background-position: center center;
-}
-
-.product-details {
-    width: 100%;
-    height: 15%;
-    display: flex;
-}
-
-.product-price {
-    width: 30%;
-    height: 100%;
-    border-right: 1px solid lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.product-title {
-    width: 70%;
-    height: 100%;
-    padding: 0 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 </style>

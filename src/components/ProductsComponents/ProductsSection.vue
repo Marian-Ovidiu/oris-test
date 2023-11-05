@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12 products-container">
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-3 content-products"
+                <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-3 content-products"
                     v-for="(product, index) in products" :key="index">
                     <ProductCard :product="product"></ProductCard>
                 </div>
