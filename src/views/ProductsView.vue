@@ -1,27 +1,16 @@
 <template>
     <MainMenu></MainMenu>
     <ProductsHeaderSection></ProductsHeaderSection>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 filter-container">
-                <div class="filter" v-for="(filter, index) in filters" :key="index" :class="{ 'selected': filter.selected }"
-                    @click="toggleMainFilter(filter)">
-                    {{ filter.label }} 
-                    <span v-if="filter.childFiltersCounter"
-                    style="background-color: black; color: white; margin-left: 5px; padding: 3px">{{ filter.childFiltersCounter }}</span>
-                </div>
-            </div>
-        </div>
+    <div class="container">     
 
-        <div class="row"  v-if="innerFilters.length > 0">
-            <div class="col-12 inner-filter-container">
-                <div class="inner-filter" v-for="(filter, index) in innerFilters" :key="index"
-                    @click="deleteInnerFilter(filter)">
-                    {{ filter.name }}
-                </div>
-            </div>
-        </div>
-        
+        <FilterBar :filters="filters"
+                   :selectedFilters="selectedFilters"
+                   :selectedFilter="selectedFilter"
+                   :isPopupOpen="isPopupOpen"
+                   @toggle-main-filter-event="toggleMainFilterEvent"
+                   ref="getInnerFilters"
+                    ></FilterBar>
+
         <div class="row" v-if="filteredProducts.length > 0">
             <div class="col-12 items-counter">
                 <div class="counter">
@@ -44,6 +33,7 @@ import MainMenu from '@/components/MainMenu.vue'
 import Footer from '@/components/Footer.vue'
 import ProductsHeaderSection from '@/components/ProductsComponents/ProductsHeaderSection.vue';
 import ProductsSection from '@/components/ProductsComponents/ProductsSection.vue';
+import FilterBar from '@/components/GlobalComponents/FilterBar.vue';
 import FilterPopup from '@/components/GlobalComponents/FilterPopup.vue';
 
 import { database } from '@/classes/database.js';
@@ -61,7 +51,8 @@ export default {
         Footer,
         ProductsHeaderSection,
         ProductsSection,
-        FilterPopup
+        FilterPopup,
+        FilterBar
     },
     data() {
         return {
@@ -73,48 +64,7 @@ export default {
             filteredProducts: []
         };
     },
-    computed: {
-        innerFilters() {
-            let innerFilters = [];
-            if (this.selectedFilters.length > 0) {
-                for (let i in this.selectedFilters) {
-                    if ('childFilters' in this.selectedFilters[i] && this.selectedFilters[i].childFilters.length > 0) {
-                        for (let j in this.selectedFilters[i].childFilters) {
-                            let innerFilter = this.selectedFilters[i].childFilters[j];
-                            innerFilter.parentId = this.selectedFilters[i].parentId;
-                            innerFilters.push(innerFilter);
-                        }
-                    }
-                }
-            }
-
-            if (innerFilters.length > 0) {
-                return innerFilters;
-            }
-
-            return [];
-        },
-    },
     methods: {
-        toggleMainFilter(filter) {
-            this.selectedFilter = filter;
-
-            let selected = this.selectedFilters.find((f) => f.parentId === filter.parentId);
-
-            if (!selected) {
-                this.selectedFilters.push(filter);
-            }
-
-            selected = this.selectedFilters.find((f) => f.parentId === filter.parentId);
-
-            if ('childFilters' in selected && selected.childFilters.length > 0) {
-                filter.selected = true;
-            } else {
-                filter.selected = false;
-            }
-
-            this.isPopupOpen = true;
-        },
         filteredProductsRecevedFunction(data) {
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(data.filteredProducts);
             this.selectedFilters = data.selectedFilters;
@@ -131,7 +81,12 @@ export default {
 
             this.filteredProducts = data.filteredProducts;
             this.isPopupOpen = data.isPopupOpen
-            this.innerFilters;
+            this.$refs.getInnerFilters.getInnerFilters();
+        },
+        toggleMainFilterEvent(data){
+            this.selectedFilter = data.selectedFilter;
+            this.selectedFilters = data.selectedFilters;
+            this.isPopupOpen = data.isPopupOpen
         },
         isPopupOpenEvent(data) {
             this.isPopupOpen = data;
@@ -176,42 +131,6 @@ export default {
     width: 90%;
 }
 
-.selected {
-    background-color: lightgray;
-    font-weight: bolder;
-}
-
-.filter-container {
-    height: 70px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid gray;
-}
-
-.inner-filter-container {
-    height: 55px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid gray;
-}
-
-.filter-container::-webkit-scrollbar,
-.inner-filter-container::-webkit-scrollbar {
-    display: none;
-}
-
-.filter-container,
-.inner-filter-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
 .items-counter {
     height: 60px;
     padding: 0 20px;
@@ -219,31 +138,8 @@ export default {
     align-items: center;
 }
 
-.filter {
-    border: 1px solid black;
-    padding: 10px;
-    min-width: 150px;
-    height: 50px;
-    margin: 0 5px;
-}
-
-.inner-filter {
-    border: 1px solid black;
-    padding: 5px 10px;
-    min-width: 50px;
-    height: 35px;
-    margin: 0 5px;
-}
-
 .counter {
     font-size: 12px;
-}
-
-.single-filter-details-container {
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    position: absolute;
 }
 
 @media (max-width: 568px) {
