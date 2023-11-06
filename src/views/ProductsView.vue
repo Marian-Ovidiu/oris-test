@@ -1,15 +1,10 @@
 <template>
     <MainMenu></MainMenu>
     <ProductsHeaderSection></ProductsHeaderSection>
-    <div class="container">     
+    <div class="container">
 
-        <FilterBar :filters="filters"
-                   :selectedFilters="selectedFilters"
-                   :selectedFilter="selectedFilter"
-                   :isPopupOpen="isPopupOpen"
-                   @toggle-main-filter-event="toggleMainFilterEvent"
-                   ref="getInnerFilters"
-                    ></FilterBar>
+        <FilterBar :filters="filters" :selectedFilters="selectedFilters" :selectedFilter="selectedFilter"
+            :isPopupOpen="isPopupOpen" @toggle-main-filter-event="toggleMainFilterEvent" ref="getInnerFilters"></FilterBar>
 
         <div class="row" v-if="filteredProducts.length > 0">
             <div class="col-12 items-counter">
@@ -19,7 +14,7 @@
             </div>
         </div>
         <div class="product-container">
-            <ProductsSection ref="filteredProductsRecevedFunction"></ProductsSection>
+            <ProductsSection ref="filteredProductsRecevedFunction" :filteredProducts="filteredProducts"></ProductsSection>
         </div>
     </div>
     <Footer></Footer>
@@ -68,12 +63,12 @@ export default {
         filteredProductsRecevedFunction(data) {
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(data.filteredProducts);
             this.selectedFilters = data.selectedFilters;
-            
-            for(let i in this.selectedFilters){
-                if ('childFilters' in this.selectedFilters[i]){
+
+            for (let i in this.selectedFilters) {
+                if ('childFilters' in this.selectedFilters[i]) {
                     this.selectedFilters[i].childFiltersCounter = this.selectedFilters[i].childFilters.length;
                     let index = this.filters.findIndex((f) => f.parentId === this.selectedFilters[i]);
-                    if(index !== -1){
+                    if (index !== -1) {
                         this.filters[index].childFiltersCounter = this.selectedFilters[i].childFiltersCounter;
                     }
                 }
@@ -83,7 +78,7 @@ export default {
             this.isPopupOpen = data.isPopupOpen
             this.$refs.getInnerFilters.getInnerFilters();
         },
-        toggleMainFilterEvent(data){
+        toggleMainFilterEvent(data) {
             this.selectedFilter = data.selectedFilter;
             this.selectedFilters = data.selectedFilters;
             this.isPopupOpen = data.isPopupOpen
@@ -111,11 +106,11 @@ export default {
             this.filteredProducts = this.$refs.getFilteredProducts.getFilteredProducts();
             this.$refs.filteredProductsRecevedFunction.filteredProductsReceved(this.filteredProducts);
 
-            for(let i in this.selectedFilters){
-                if ('childFilters' in this.selectedFilters[i]){
+            for (let i in this.selectedFilters) {
+                if ('childFilters' in this.selectedFilters[i]) {
                     this.selectedFilters[i].childFiltersCounter = this.selectedFilters[i].childFilters.length;
                     let index = this.filters.findIndex((f) => f.parentId === this.selectedFilters[i]);
-                    if(index !== -1){
+                    if (index !== -1) {
                         this.filters[index].childFiltersCounter = this.selectedFilters[i].childFiltersCounter;
                     }
                 }
