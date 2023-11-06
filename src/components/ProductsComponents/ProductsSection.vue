@@ -28,9 +28,6 @@ import { database } from '@/classes/database.js';;
 
 export default {
     name: 'ProductsSection',
-    props: [
-        'filteredProducts'
-    ],
     mounted() {
         const prd = new database();
         this.$data.products = prd.getProducts();
@@ -38,12 +35,6 @@ export default {
     },
     components: {
         ProductCard
-    },
-    watch: {
-        filteredProducts(data) {
-            this.$data.products = data;
-            this.productsVisualizzati = data.slice(0, 12);
-        }
     },
     data() {
         return {
@@ -56,6 +47,7 @@ export default {
     methods: {
         filteredProductsReceved(filteredProducts) {
             this.products = filteredProducts;
+            this.productsVisualizzati = filteredProducts.slice(0, 12);
         },
         caricaOggettiSuccessivi() {
             if (this.inizio < this.products.length) {

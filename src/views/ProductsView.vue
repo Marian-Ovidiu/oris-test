@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="product-container">
-            <ProductsSection ref="filteredProductsRecevedFunction" :filteredProducts="filteredProducts"></ProductsSection>
+            <ProductsSection ref="filteredProductsRecevedFunction"></ProductsSection>
         </div>
     </div>
     <Footer></Footer>
