@@ -3,21 +3,26 @@
 		<MainMenu></MainMenu>
 
 		<div class="header-product">
-			<div class="immagine-ingrandita" :style="'background-image: url(\''+immagineIngrandita+'\')'" id="immagine-ingrandita">
-				
+			<div class="immagine-ingrandita" :style="'background-image: url(\'' + immagineIngrandita + '\')'"
+				id="immagine-ingrandita">
+
 			</div>
 			<Swiper :autoplay="{ delay: 2000 }" :loop="true" :loopAdditionalSlides="2" :modules="modules" navigation
-				slidesPerView="3" :direction="swiperDirection" :pagination="{ clickable: true }"
+				v-if="product !== null" slidesPerView="3" :direction="swiperDirection" :pagination="{ clickable: true }"
 				:scrollbar="{ draggable: true }" @swiper="onSwiper" @slideChange="onSlideChange" class="swiper-container">
-				<SwiperSlide :slides-per-view="1" navigation :pagination="{ clickable: true }" v-for="img in sliderImages"
+				<SwiperSlide :slides-per-view="1" navigation :pagination="{ clickable: true }" v-for="img in product.images"
 					class="swiper" :key="img">
 					<div class="images-container" :style="'background-image: url(' + img.img + ');'"
 						@click="showImage(img.img)"></div>
 				</SwiperSlide>
 			</Swiper>
 		</div>
-		<div class="product-content-containee">
-
+		<div class="product-content-container">
+			<div class="brand">{{ getBrand }}</div>
+			<div class="title" v-if="product !== null">{{ product.name }}</div>
+			<div class="price" v-if="product !== null">{{ product.price }}</div>
+			<div class="taglie">{{ getTaglie }}</div>
+			<!-- <div class="title">{{ product.name }}</div>	 -->
 		</div>
 
 		<Footer></Footer>
@@ -30,7 +35,7 @@ import Footer from '@/components/Footer.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-
+import { database } from '@/classes/database.js';
 
 export default {
 	name: 'ProductView',
@@ -52,39 +57,48 @@ export default {
 		return {
 			swiperDirection: window.innerWidth > 768 ? 'vertical' : 'horizontal',
 			immagineIngrandita: '../assets/imgs/fototest-1.jpg',
-			sliderImages: [
-				{
-					img: '../assets/imgs/fototest-1.jpg',
-					text: 'Testo di test 1',
-					description: 'Mini descrizione'
-				},
-				{
-					img: '../assets/imgs/fototest-2.jpg',
-					text: 'Testo di test 2',
-					description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
-				},
-				{
-					img: '../assets/imgs/fototest-3.jpg',
-					text: 'Testo di test 1',
-					description: null
-				},
-				{
-					img: '../assets/imgs/fototest-1.jpg',
-					text: 'Testo di test 1',
-					description: 'Mini descrizione'
-				},
-				{
-					img: '../assets/imgs/fototest-2.jpg',
-					text: 'Testo di test 2',
-					description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
-				},
-				{
-					img: '../assets/imgs/fototest-3.jpg',
-					text: 'Testo di test 1',
-					description: null
-				}
-			]
+			product: null
 		};
+	},
+	computed: {
+		getBrand() {
+			if (this.product) {
+				let filterBrand = this.product.filters.find((f) => f.typeFilter === 1);
+				if (filterBrand) {
+					const db = new database();
+					let brand = db.getFilters().find((f) => f.parentId === 1);
+					if (brand) {
+						brand = brand.filterData.find((f) => f.id === filterBrand.filters[0])
+						return brand.name;
+					}
+				}
+			}
+			return '';
+		},
+		getTaglie() {
+			if (this.product) {
+				let filterTaglie = this.product.filters.find((f) => f.typeFilter === 2);
+				if (filterTaglie) {
+					const db = new database();
+					let taglie = db.getFilters().find((f) => f.parentId === 2);
+					if (taglie) {
+						let taglieToExport = [];
+
+						for (let i in filterTaglie.filters) {
+							
+							for (let j in taglie.filterData) {
+								if (filterTaglie.filters[i] == taglie.filterData[j].id) {
+									taglieToExport.push(taglie.filterData[j]);
+								}
+							}
+						}
+						console.log(taglieToExport);
+						return taglieToExport;
+					}
+				}
+			}
+			return '';
+		},
 	},
 	components: {
 		MainMenu,
@@ -93,7 +107,8 @@ export default {
 		SwiperSlide
 	},
 	mounted() {
-
+		const db = new database();
+		this.$data.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
 	},
 	methods: {
 		showImage(largeImageUrl) {
@@ -147,6 +162,11 @@ export default {
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.product-content-container {
+	width: 100%;
+	height: 600px;
 }
 
 @media (max-width: 768px) {

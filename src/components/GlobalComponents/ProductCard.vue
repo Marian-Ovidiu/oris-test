@@ -1,18 +1,18 @@
 <template>
-    <div class="product">
-        <div class="product-img" :style="'background-image: url(' + product.imageUrl + ');'"></div>
-        <div class="product-details">
-            <div class="product-title">
-                <div><strong> {{ product.name }}</strong></div>
+    <router-link :to="'/product/'+product.productId" class="router product">
+            <div class="product-img" :style="'background-image: url(' + product.imageUrl + ');'"></div>
+            <div class="product-details">
+                <div class="product-title">
+                    <div><strong> {{ product.name }}</strong></div>
+                </div>
+                <div class="product-description">
+                    <div>{{ truncatedDescription }}</div>
+                </div>
+                <div class="product-price">
+                    €<div>{{ product.price }}</div>
+                </div>
             </div>
-            <div class="product-description">
-                <div>{{ truncatedDescription }}</div>
-            </div>
-            <div class="product-price">
-                €<div>{{ product.price }}</div>
-            </div>
-        </div>
-    </div>
+    </router-link>
 </template>
 
 <script>
@@ -20,18 +20,23 @@ export default {
     name: 'ProductCart',
     props: ['product'],
     computed: {
-    truncatedDescription() {
-      if (this.product.description.length > 26) {
-        return this.product.description.slice(0, 26) + "...";
-      } else {
-        return this.product.description;
-      }
+        truncatedDescription() {
+            if (this.product.description.length > 26) {
+                return this.product.description.slice(0, 26) + "...";
+            } else {
+                return this.product.description;
+            }
+        },
     },
-  },
 }
 </script>
 
 <style scoped>
+
+.router {
+    text-decoration: none;
+    color:black;
+}
 .product {
     width: 90%;
     height: 450px;
@@ -51,12 +56,15 @@ export default {
     display: flex;
     flex-direction: column;
 }
+
 .product-title {
     width: 100%;
 }
+
 .product-description {
     font-size: 14px;
 }
+
 .product-price {
     padding: 5px 0;
     width: 100%;
@@ -98,5 +106,4 @@ export default {
         height: 550px;
         margin: auto;
     }
-}
-</style>
+}</style>

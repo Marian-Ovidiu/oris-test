@@ -80,11 +80,44 @@ class database {
 
         this.products = [
             {
+                productId: 1,
                 name: 'Prodotto 1',
                 description: 'Descrizione del prodotto numero 1',
                 price: '50.99',
                 imageUrl: '../assets/imgs/fototest-1.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -101,11 +134,44 @@ class database {
                 ]
             },
             {
+                productId: 2,
                 name: 'Prodotto 2',
                 description: 'Descrizione del prodotto 2',
                 price: '79.99',
                 imageUrl: '../assets/imgs/fototest-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -122,11 +188,44 @@ class database {
                 ]
             },
             {
+                productId: 3,
                 name: 'Prodotto 3',
                 description: 'Descrizione del prodotto 3',
                 price: '5.99',
                 imageUrl: '../assets/imgs/fototest-3.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -143,11 +242,44 @@ class database {
                 ]
             },
             {
+                productId: 4,
                 name: 'Prodotto 4',
                 description: 'Descrizione del prodotto 4',
                 price: '6.99',
                 imageUrl: '../assets/imgs/slider-1.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -164,11 +296,44 @@ class database {
                 ]
             },
             {
+                productId: 5,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -185,11 +350,44 @@ class database {
                 ]
             },
             {
+                productId: 6,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -206,11 +404,44 @@ class database {
                 ]
             },
             {
+                productId: 7,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -227,11 +458,44 @@ class database {
                 ]
             },
             {
+                productId: 8,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -248,11 +512,44 @@ class database {
                 ]
             },
             {
+                productId: 9,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -269,11 +566,44 @@ class database {
                 ]
             },
             {
+                productId: 10,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -290,11 +620,44 @@ class database {
                 ]
             },
             {
+                productId: 11,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -311,11 +674,44 @@ class database {
                 ]
             },
             {
+                productId: 12,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -332,11 +728,44 @@ class database {
                 ]
             },
             {
+                productId: 13,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -353,11 +782,44 @@ class database {
                 ]
             },
             {
+                productId: 14,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -374,11 +836,44 @@ class database {
                 ]
             },
             {
+                productId: 15,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -395,11 +890,44 @@ class database {
                 ]
             },
             {
+                productId: 16,
                 name: 'Prodotto 3',
                 description: 'Descrizione del prodotto 3',
                 price: '5.99',
                 imageUrl: '../assets/imgs/fototest-3.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -416,11 +944,44 @@ class database {
                 ]
             },
             {
+                productId: 17,
                 name: 'Prodotto 4',
                 description: 'Descrizione del prodotto 4',
                 price: '6.99',
                 imageUrl: '../assets/imgs/slider-1.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -437,11 +998,44 @@ class database {
                 ]
             },
             {
+                productId: 18,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -458,11 +1052,44 @@ class database {
                 ]
             },
             {
+                productId: 19,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -479,116 +1106,44 @@ class database {
                 ]
             },
             {
+                productId: 20,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
-                filters: [
+                images: [
                     {
-                        typeFilter: 1,
-                        filters: [2]
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
                     },
                     {
-                        typeFilter: 2,
-                        filters: [3]
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
                     },
                     {
-                        typeFilter: 3,
-                        filters: [1]
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
                     }
-                ]
-            },
-            {
-                name: 'Prodotto 5',
-                description: 'Descrizione del prodotto 5',
-                price: '9.99',
-                imageUrl: '../assets/imgs/slider-2.jpg',
-                selected: false,
-                filters: [
-                    {
-                        typeFilter: 1,
-                        filters: [2]
-                    },
-                    {
-                        typeFilter: 2,
-                        filters: [3]
-                    },
-                    {
-                        typeFilter: 3,
-                        filters: [1]
-                    }
-                ]
-            },
-            {
-                name: 'Prodotto 5',
-                description: 'Descrizione del prodotto 5',
-                price: '9.99',
-                imageUrl: '../assets/imgs/slider-2.jpg',
-                selected: false,
-                filters: [
-                    {
-                        typeFilter: 1,
-                        filters: [2]
-                    },
-                    {
-                        typeFilter: 2,
-                        filters: [3]
-                    },
-                    {
-                        typeFilter: 3,
-                        filters: [1]
-                    }
-                ]
-            },
-            {
-                name: 'Prodotto 5',
-                description: 'Descrizione del prodotto 5',
-                price: '9.99',
-                imageUrl: '../assets/imgs/slider-2.jpg',
-                selected: false,
-                filters: [
-                    {
-                        typeFilter: 1,
-                        filters: [2]
-                    },
-                    {
-                        typeFilter: 2,
-                        filters: [3]
-                    },
-                    {
-                        typeFilter: 3,
-                        filters: [1]
-                    }
-                ]
-            },
-            {
-                name: 'Prodotto 5',
-                description: 'Descrizione del prodotto 5',
-                price: '9.99',
-                imageUrl: '../assets/imgs/slider-2.jpg',
-                selected: false,
-                filters: [
-                    {
-                        typeFilter: 1,
-                        filters: [2]
-                    },
-                    {
-                        typeFilter: 2,
-                        filters: [3]
-                    },
-                    {
-                        typeFilter: 3,
-                        filters: [3]
-                    }
-                ]
-            },
-            {
-                name: 'Prodotto 5',
-                description: 'Descrizione del prodotto 5',
-                price: '9.99',
-                imageUrl: '../assets/imgs/slider-2.jpg',
-                selected: false,
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -605,11 +1160,44 @@ class database {
                 ]
             },
             {
+                productId: 21,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -626,11 +1214,314 @@ class database {
                 ]
             },
             {
+                productId: 22,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 2,
+                        filters: [3]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [1]
+                    }
+                ]
+            },
+            {
+                productId: 23,
+                name: 'Prodotto 5',
+                description: 'Descrizione del prodotto 5',
+                price: '9.99',
+                imageUrl: '../assets/imgs/slider-2.jpg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 2,
+                        filters: [3]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [1]
+                    }
+                ]
+            },
+            {
+                productId: 24,
+                name: 'Prodotto 5',
+                description: 'Descrizione del prodotto 5',
+                price: '9.99',
+                imageUrl: '../assets/imgs/slider-2.jpg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 2,
+                        filters: [3]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [3]
+                    }
+                ]
+            },
+            {
+                productId: 25,
+                name: 'Prodotto 5',
+                description: 'Descrizione del prodotto 5',
+                price: '9.99',
+                imageUrl: '../assets/imgs/slider-2.jpg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 2,
+                        filters: [3]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [1]
+                    }
+                ]
+            },
+            {
+                productId: 26,
+                name: 'Prodotto 5',
+                description: 'Descrizione del prodotto 5',
+                price: '9.99',
+                imageUrl: '../assets/imgs/slider-2.jpg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 2,
+                        filters: [3]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [1]
+                    }
+                ]
+            },
+            {
+                productId: 27,
+                name: 'Prodotto 5',
+                description: 'Descrizione del prodotto 5',
+                price: '9.99',
+                imageUrl: '../assets/imgs/slider-2.jpg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,
@@ -647,11 +1538,44 @@ class database {
                 ]
             },
             {
+                productId: 28,
                 name: 'Prodotto 5',
                 description: 'Descrizione del prodotto 5',
                 price: '9.99',
                 imageUrl: '../assets/imgs/slider-2.jpg',
                 selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    },
+                    {
+                        img: '../assets/imgs/fototest-1.jpg',
+                        text: 'Testo di test 1',
+                        description: 'Mini descrizione'
+                    },
+                    {
+                        img: '../assets/imgs/fototest-2.jpg',
+                        text: 'Testo di test 2',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
+                    },
+                    {
+                        img: '../assets/imgs/fototest-3.jpg',
+                        text: 'Testo di test 1',
+                        description: null
+                    }
+                ],
                 filters: [
                     {
                         typeFilter: 1,

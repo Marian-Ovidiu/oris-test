@@ -32,6 +32,7 @@ export default {
 		return {
 			products: [
 				{
+					productId:1,
 					name: 'Prodotto 1',
 					description: 'Descrizione del prodotto numero 1',
 					price: '50.99',
@@ -53,6 +54,7 @@ export default {
 					]
 				},
 				{
+					productId:2,
 					name: 'Prodotto 2',
 					description: 'Descrizione del prodotto 2',
 					price: '79.99',
@@ -74,6 +76,7 @@ export default {
 					]
 				},
 				{
+					productId:3,
 					name: 'Prodotto 3',
 					description: 'Descrizione del prodotto 3',
 					price: '5.99',
@@ -95,6 +98,7 @@ export default {
 					]
 				},
 				{
+					productId:4,
 					name: 'Prodotto 4',
 					description: 'Descrizione del prodotto 4',
 					price: '6.99',
@@ -116,6 +120,7 @@ export default {
 					]
 				},
 				{
+					productId:5,
 					name: 'Prodotto 5',
 					description: 'Descrizione del prodotto 5',
 					price: '9.99',
