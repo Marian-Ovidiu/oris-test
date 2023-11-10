@@ -3,10 +3,8 @@
         <div class="col-12 filter-container">
             <div class="filter" v-for="(filter, index) in localFilters" :key="index"
                 :class="{ 'selected': filter.selected }" @click="toggleMainFilter(filter)">
-                {{ filter.label }}
-                <span v-if="filter.childFiltersCounter"
-                    style="background-color: black; color: white; margin-left: 5px; padding: 3px">{{
-                        filter.childFiltersCounter }}</span>
+                <div class="label"> {{ filter.label }}</div>
+                <div v-if="filter.childFiltersCounter" class="filter-counter">{{ filter.childFiltersCounter }}</div>
             </div>
         </div>
     </div>
@@ -79,7 +77,7 @@ export default {
     methods: {
         toggleMainFilter(filter) {
             this.localSelectedFilter = filter;
-            
+
             let selected = this.localSelectedFilters.find((f) => f.parentId === filter.parentId);
 
             if (!selected) {
@@ -102,10 +100,10 @@ export default {
                 isPopupOpen: this.localIsPopupOpen
             });
         },
-        getInnerFilters(){
+        getInnerFilters() {
             return this.innerFilters;
         },
-        deleteInnerFilter(innerFilter){
+        deleteInnerFilter(innerFilter) {
             innerFilter.selected = false;
             const parentComponent = this.$parent;
             parentComponent.deleteInnerFilter(innerFilter);
@@ -117,29 +115,32 @@ export default {
 
 
 <style scoped>
+.filter-counter {
+    color: black;
+    margin-left: 15px;
+    padding: 0 10px;
+}
+
 .selected {
-    background-color: lightgray;
+    background-color: #d3d3d3;
     font-weight: bolder;
+}
+
+.filter-container, .inner-filter-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    flex-direction: row;
+    align-items: center;
 }
 
 .filter-container {
     height: 70px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
 }
 
 .inner-filter-container {
     height: 55px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid gray;
 }
 
 .filter-container::-webkit-scrollbar,
@@ -154,17 +155,20 @@ export default {
 }
 
 .filter {
-    border: 1px solid black;
+    border: 1px solid lightgray;
     padding: 10px;
     min-width: 150px;
     height: 50px;
     margin: 0 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .inner-filter {
-    border: 1px solid black;
+    border: 1px solid lightgray;
     padding: 5px 10px;
     height: 35px;
     margin: 0 5px;
+    flex:none;
 }
 </style>

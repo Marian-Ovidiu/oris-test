@@ -11,7 +11,12 @@
                     <div class="follow-us-icons-container">
                         <a href="https://instagram.com/da_oris?igshid=MzRlODBiNWFlZA==" target="_blank">
                             <font-awesome-icon icon="fa-brands fa-instagram" class="fa-2x fa-brands" />
+                        </a>
+                        <a href="https://www.facebook.com/liliana.abrate.14?locale=it_IT" target="_blank">
                             <font-awesome-icon icon="fa-brands fa-facebook" class="fa-2x fa-brands" />
+                        </a>
+                        <a href="https://www.tiktok.com/@oris.bra" target="_blank">
+                            <font-awesome-icon icon="fa-brands fa-tiktok" class="fa-2x fa-brands" />
                         </a>
                     </div>
                 </div>

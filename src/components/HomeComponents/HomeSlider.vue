@@ -5,10 +5,10 @@
             :key="img">
             <div class="images-container" :style="'background-image: url(' + img.img + ');'">
                 <div class="slide-content">
-                    <div class="inner-slide-content">
+                    <!-- <div class="inner-slide-content">
                     <h1 v-if="img.text">{{img.text}}</h1>
                     <p v-if="img.description">{{ img.description }}</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </SwiperSlide>

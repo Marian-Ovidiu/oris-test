@@ -1,6 +1,7 @@
 <template>
     <MainMenu></MainMenu>
-    <ProductsHeaderSection></ProductsHeaderSection>
+    <Header :title="'Prodotti'"></Header>
+
     <div class="container">
 
         <FilterBar :filters="filters" :selectedFilters="selectedFilters" :selectedFilter="selectedFilter"
@@ -26,8 +27,8 @@
 <script>
 import MainMenu from '@/components/MainMenu.vue'
 import Footer from '@/components/Footer.vue'
-import ProductsHeaderSection from '@/components/ProductsComponents/ProductsHeaderSection.vue';
 import ProductsSection from '@/components/ProductsComponents/ProductsSection.vue';
+import Header from '@/components/GlobalComponents/Header.vue';
 import FilterBar from '@/components/GlobalComponents/FilterBar.vue';
 import FilterPopup from '@/components/GlobalComponents/FilterPopup.vue';
 
@@ -44,7 +45,7 @@ export default {
     components: {
         MainMenu,
         Footer,
-        ProductsHeaderSection,
+        Header,
         ProductsSection,
         FilterPopup,
         FilterBar

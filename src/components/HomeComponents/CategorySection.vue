@@ -1,14 +1,15 @@
 <template>
 	<div class="home-categories">
 		<div class="row">
-			<div class="col-lg-4 col-xl-4 col-xxl-4" v-for="(item, index) in categoriesData"
-				:class="{ 'col-md-6 col-sm-6 col-6': index < 2, 'col-md-12 col-sm-12 col-12 max-width-full': index === 2 }"
-				:key="item">
-				<div class="category-box" :class="{ 'change-height': index === 2}">
-					<div class="image-ground" :style="'background-image: url(' + item.img + ');'">
+			<div class="col-lg-4 col-xl-4 col-xxl-4" v-for="(item, index) in categoriesData" :class="{
+				'col-md-6 col-sm-6 col-6': index < 2,
+				'col-md-12 col-sm-12 col-12 max-width-full': index === 2
+			}" :key="item">
+				<div class="category-box" :class="{ 'change-height': index === 2 }">
+					<div class="image-ground" :style="'background-image: url(' + item.img + ');'" ref="imageGround">
 						<div class="dark-cover">
 							<div class="categories-content">
-								<h1>{{ item.text }}</h1>
+								<span>{{ item.text }}</span>
 							</div>
 						</div>
 					</div>
@@ -18,13 +19,16 @@
 	</div>
 </template>
   
-  
-
 <script>
 export default {
 	name: 'CategorySection',
+	mounted() {
+		window.addEventListener('scroll', this.handleScroll);
+		this.handleScroll();
+	},
 	data() {
 		return {
+			isImageGroundVisible: false,
 			categoriesData: [
 				{
 					img: '../assets/imgs/for-him.jpeg',
@@ -44,14 +48,20 @@ export default {
 			]
 		};
 	},
-	components: {
-	},
-	mounted() {
-
-	},
 	methods: {
-
+		handleScroll() {
+			const imageGrounds = this.$refs.imageGround;
+			if (imageGrounds) {
+				imageGrounds.forEach((imageGround) => {
+					const rect = imageGround.getBoundingClientRect();
+					this.isImageGroundVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+				});
+			}
+		}
 	},
+	beforeDestroy() {
+		window.removeEventListener('scroll', this.handleScroll);
+	}
 }
 </script>
 
@@ -81,15 +91,16 @@ export default {
 	height: 100%;
 	position: relative;
 	overflow: hidden;
-	background-color: #000;
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
-.image-ground>.dark-cover>.categories-content>h1 {
+.image-ground>.dark-cover>.categories-content>span {
 	position: relative;
 	z-index: 1;
+	font-size: 25px;
+	color: white;
 }
 
 .image-ground::after {
@@ -111,18 +122,20 @@ export default {
 }
 
 .dark-cover {
-	z-index: 2;
+	position: relative;
+	z-index: 1;
 	width: 100%;
 	height: 100%;
-	background: radial-gradient(rgba(55, 65, 81, 1) 0%, rgba(55, 65, 81, 0.7) 100%);
+	background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) -1.72%, rgba(0, 0, 0, 0.4) 28.4%, rgba(0, 0, 0, 0) 40.5%);
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	align-items: end;
+	padding-left: 15px;
+	padding-bottom: 15px;
 }
 
 .categories-content {
-	text-align: center;
 	width: 100%;
+	text-align: center;
 }
 
 .categories-content>h1 {
@@ -140,8 +153,9 @@ export default {
 	.change-height {
 		height: 200px !important;
 		margin: 0 !important;
-		
+
 	}
+
 	.max-width-full {
 		width: 100% !important;
 		height: 200px !important;
@@ -150,6 +164,6 @@ export default {
 		justify-content: space-around;
 	}
 
-	
+
 }
 </style>

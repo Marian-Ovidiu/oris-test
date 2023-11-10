@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <MainMenu></MainMenu>
-    <AboutHeaderSection></AboutHeaderSection>
+    <Header :title="'Su di noi'"></Header>
     <AboutContentSection></AboutContentSection>
     <Footer></Footer>
   </div>
@@ -10,7 +10,7 @@
 <script>
 import MainMenu from '../components/MainMenu.vue'
 import Footer from '../components/Footer.vue'
-import AboutHeaderSection from '@/components/AboutComponents/AboutHeaderSection.vue';
+import Header from '@/components/GlobalComponents/Header.vue';
 import AboutContentSection from '@/components/AboutComponents/AboutContentSection.vue';
 
 export default {
@@ -18,7 +18,7 @@ export default {
   components: {
     MainMenu,
     Footer,
-    AboutHeaderSection,
+    Header,
     AboutContentSection
   }
 }

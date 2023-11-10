@@ -170,7 +170,7 @@ export default {
 
 .inner-filter {
     height: 45px;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     margin: 5px 0;
     text-align: center;
     line-height: 45px;

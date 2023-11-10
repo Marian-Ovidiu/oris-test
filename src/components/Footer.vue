@@ -31,12 +31,15 @@
 					<div class="social-section">
 						<div class="title-social-section">Social media</div>
 						<div class="content-social-section justify-align-flex">
-							<div class="item">
+							<a class="item" href="https://instagram.com/da_oris?igshid=MzRlODBiNWFlZA==" target="_blank">
 								<font-awesome-icon icon="fa-brands fa-instagram" class="fa-2x fa-brands" />
-							</div>
-							<div class="item">
+							</a>
+							<a class="item" href="https://www.facebook.com/liliana.abrate.14?locale=it_IT" target="_blank">
 								<font-awesome-icon icon="fa-brands fa-facebook" class="fa-2x fa-brands" />
-							</div>
+							</a>
+							<a class="item" href="https://www.tiktok.com/@oris.bra" target="_blank">
+								<font-awesome-icon icon="fa-brands fa-tiktok" class="fa-2x fa-brands" />
+							</a>
 						</div>
 					</div>
 				</div>
@@ -74,8 +77,6 @@ export default {
 	justify-content: center;
 	align-items: center;
 }
-
-
 
 .footer-container {
 	width: 100vw;

@@ -1,6 +1,6 @@
 <template>
     <div class="contact-content-container">
-            <div class="pre-row">
+            <!-- <div class="pre-row">
                 <div class="row contact-pre-content-row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam ratione doloremque aut, iste
@@ -10,13 +10,13 @@
                         deserunt consequuntur.
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="pre-row">
                 <div class="row contact-content-row">
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4 item">
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 item">
                         <div class="contact-box">
                             <div class="icon-container">
-                                <font-awesome-icon icon="fa-map-marker" class="fa-2x fa-brands" />
+                                <font-awesome-icon icon="fa-map-marker" class="fa-brands" />
                             </div>
                             <div class="contact-content">
                                 <span>Corso Garibaldi, 16, 12042 Bra CN</span>
@@ -24,24 +24,24 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4 item">
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 item">
                         <div class="contact-box">
                             <div class="icon-container">
-                                <font-awesome-icon icon="fa-envelope" class="fa-2x fa-brands" />
+                                <font-awesome-icon icon="fa-envelope" class="fa-brands" />
                             </div>
                             <div class="contact-content">
-                                <span>test-oris@gmail.com</span>
+                                <span>orisbra@gmail.com</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 item">
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 item">
                         <div class="contact-box">
                             <div class="icon-container">
-                                <font-awesome-icon icon="fa-phone" class="fa-2x fa-brands" />
+                                <font-awesome-icon icon="fa-phone" class="fa-brands" />
                             </div>
                             <div class="contact-content">
-                                <span>0172 431560</span>
+                                <a :href="'tel:0172 431560'">0172 431560</a>
                             </div>
                         </div>
                     </div>
@@ -71,12 +71,9 @@ export default {
 .pre-row {
     width: 100%;
 }
-.pre-row:nth-child(2){
-    background-color: #E0E0E0;
-}
 
 .contact-content-row, .contact-pre-content-row {
-    width: 80%;
+    width: 100%;
     padding: 30px 0;
     margin: auto;
 }
@@ -87,16 +84,21 @@ export default {
     justify-content: center;
     align-items: center;
     height: 125px;
-    width: 85%;
     margin: auto;
 }
 
 .icon-container {
     text-align: center;
+    padding: 15px 0;
 }
 
 .contact-content {
-    padding: 15px;
+    font-size: 12px;
+    padding: 15px 0;
     text-align: center;
+}
+.contact-content > a {
+    text-decoration: none;
+    color: black;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="contact">
         <MainMenu></MainMenu>
-        <ContactHeaderSection></ContactHeaderSection>
+        <Header :title="'Contatti'"></Header>
         <ContactContentSection></ContactContentSection>
         <ContactMapSection></ContactMapSection>
         <Footer></Footer>
@@ -11,7 +11,7 @@
 <script>
 import MainMenu from '@/components/MainMenu.vue'
 import Footer from '@/components/Footer.vue'
-import ContactHeaderSection from '@/components/ContactComponents/ContactHeaderSection.vue';
+import Header from '@/components/GlobalComponents/Header.vue';
 import ContactContentSection from '@/components/ContactComponents/ContactContentSection.vue';
 import ContactMapSection from '@/components/ContactComponents/ContactMapSection.vue';
 
@@ -21,7 +21,7 @@ export default {
     components: {
         MainMenu,
         Footer,
-        ContactHeaderSection,
+        Header,
         ContactContentSection,
         ContactMapSection
     }

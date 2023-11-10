@@ -13,11 +13,11 @@
                 <li class="menu-item">
                     <router-link to="/" class="menu-button" style="text-decoration: none;">
                         <a style="text-decoration: none;"
-                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            class="relative w-7 px-3 py-2 overflow-hidden font-medium text-sm text-gray-600 rounded-lg group border-none">
                             <span
                                 class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
-                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
                                 class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
                             <span
@@ -25,18 +25,18 @@
                             <span
                                 class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
                             <span
-                                class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Home</span>
+                                class="text-size relative transition-colors duration-300 delay-200 group-hover:text-white ease">Home</span>
                         </a>
                     </router-link>
                 </li>
                 <li class="menu-item">
                     <router-link to="/products" class="menu-button" style="text-decoration: none;">
                         <a style="text-decoration: none;"
-                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            class="relative w-7 px-3 py-2 overflow-hidden font-medium text-sm text-gray-600 rounded-lg group border-none">
                             <span
                                 class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
-                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
                                 class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
                             <span
@@ -44,25 +44,26 @@
                             <span
                                 class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
                             <span
-                                class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Prodotti</span>
+                                class="text-size relative transition-colors duration-300 delay-200 group-hover:text-white ease">Prodotti</span>
                         </a>
                     </router-link>
                 </li>
                 <li class="menu-item">
                     <router-link to="/about" class="menu-button" style="text-decoration: none;">
                         <a style="text-decoration: none;"
-                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            class="relative w-7 px-3 py-2 overflow-hidden font-medium text-sm text-gray-600 rounded-lg group border-none">
                             <span
                                 class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
-                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
                                 class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
                             <span
                                 class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
                             <span
                                 class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-                            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Su
+                            <span
+                                class="text-size relative transition-colors duration-300 delay-200 group-hover:text-white ease">Su
                                 di noi</span>
                         </a>
                     </router-link>
@@ -70,11 +71,11 @@
                 <li class="menu-item">
                     <router-link to="/contact" class="menu-button" style="text-decoration: none;">
                         <a style="text-decoration: none;"
-                            class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                            class="relative w-7 px-3 py-2 overflow-hidden font-medium text-sm text-gray-600 rounded-lg group border-none">
                             <span
                                 class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
-                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200   group-hover:w-full ease border-none"></span>
+                                class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                             <span
                                 class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
                             <span
@@ -82,7 +83,7 @@
                             <span
                                 class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
                             <span
-                                class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">Contatti</span>
+                                class="text-size relative transition-colors duration-300 delay-200 group-hover:text-white ease">Contatti</span>
                         </a>
                     </router-link>
                 </li>
@@ -112,7 +113,7 @@ export default {
 
 .change-bg-black {
     /* background-color: black !important; */
-    background-color: rgba(0, 0, 0, 1) !important;
+    background: radial-gradient(rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%) !important;
     transition: all 0.3s ease-out;
     color: white;
 
@@ -125,7 +126,7 @@ export default {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 150px;
+    width: 100px;
     height: 100px;
 }
 
@@ -167,6 +168,7 @@ export default {
     list-style: none;
     margin: 0;
     padding: 5px;
+
 }
 
 .nav-items>li {
@@ -184,12 +186,10 @@ i {
     width: calc(100% - 150px);
 }
 
-/* .bars {
-    position: absolute;
-    top:0;
-    left:0;
-    transform: translate(50%, 50%);
-} */
+.text-size {
+    font-size: 13px;
+}
+
 @media screen and (min-width: 768px) {
     .nav-content {
         transform: translate(0, 0);
@@ -211,7 +211,6 @@ i {
     }
 
     .nav-menu {
-        padding: 10px 25px;
         position: relative;
         display: flex;
         align-items: center;
@@ -254,5 +253,4 @@ i {
         text-align: right;
         padding: 0 10px 10px 0;
     }
-}
-</style>
+}</style>
