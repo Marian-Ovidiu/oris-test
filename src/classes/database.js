@@ -287,7 +287,7 @@ class database {
                     },
                     {
                         typeFilter: 2,
-                        filters: [3]
+                        filters: [3, 4]
                     },
                     {
                         typeFilter: 3,

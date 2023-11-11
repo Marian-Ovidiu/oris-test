@@ -2,27 +2,72 @@
 	<div class="product">
 		<MainMenu></MainMenu>
 
-		<div class="header-product">
-			<div class="immagine-ingrandita" :style="'background-image: url(\'' + immagineIngrandita + '\')'"
-				id="immagine-ingrandita">
-
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
+					<SliderProductComponent v-if="product" :images="product.images"></SliderProductComponent>
+				</div>
+				<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xxl-6">
+					<div class="product-content-container">
+						<div class="brand">{{ getBrand }}</div>
+						<div class="title" v-if="product !== null">{{ product.name }}</div>
+						<div class="price" v-if="product !== null">{{ product.price }} € <span class="text-gray">Iva
+								inclusa</span></div>
+						<div class="taglie">
+							<strong>Taglie: </strong>
+							<span v-for="(taglia, index) in getTaglie" :key="index">{{ index === 0 ? taglia.name : '-' +
+								taglia.name }} </span>
+						</div>
+						<div class="accordionn">
+							<div class="accordionn-item">
+								<input type="radio" name="accordionn" id="primo">
+								<label for="primo">Composizione</label>
+								<div class="content">
+									<div class="inner-content">
+										<strong>Composizione: </strong> 100% cotone	
+									</div>
+									<div class="inner-content">
+										<strong>Fodera: </strong> 100% poliestere	
+									</div>
+									<div class="inner-content">
+										<strong>Avvertenze: </strong> Lavaggio delicati	
+									</div>
+								</div>
+							</div>	
+							<div class="accordionn-item">
+								<input type="radio" name="accordionn" id="secondo">
+								<label for="secondo">Dettagli prodotto</label>
+								<div class="content">
+									<div class="inner-content">
+										<strong>Colletto: </strong> Foderato	
+									</div>
+									<div class="inner-content">
+										<strong>Chiusura: </strong> Cerniera
+									</div>
+									<div class="inner-content">
+										<strong>Fantasia: </strong> Monocromo
+									</div>
+								</div>
+							</div>	
+							<div class="accordionn-item">
+								<input type="radio" name="accordionn" id="terzo">
+								<label for="terzo">Taglia e fit</label>
+								<div class="content">
+									<div class="inner-content">
+										<strong>Vestibilità: </strong> Regolare	
+									</div>
+									<div class="inner-content">
+										<strong>Linea: </strong> Dritta
+									</div>
+									<div class="inner-content">
+										<strong>Fantasia: </strong> Monocromo
+									</div>
+								</div>
+							</div>	
+						</div>	
+					</div>
+				</div>
 			</div>
-			<Swiper :autoplay="{ delay: 2000 }" :loop="true" :loopAdditionalSlides="2" :modules="modules" navigation
-				v-if="product !== null" slidesPerView="3" :direction="swiperDirection" :pagination="{ clickable: true }"
-				:scrollbar="{ draggable: true }" @swiper="onSwiper" @slideChange="onSlideChange" class="swiper-container">
-				<SwiperSlide :slides-per-view="1" navigation :pagination="{ clickable: true }" v-for="img in product.images"
-					class="swiper" :key="img">
-					<div class="images-container" :style="'background-image: url(' + img.img + ');'"
-						@click="showImage(img.img)"></div>
-				</SwiperSlide>
-			</Swiper>
-		</div>
-		<div class="product-content-container">
-			<div class="brand">{{ getBrand }}</div>
-			<div class="title" v-if="product !== null">{{ product.name }}</div>
-			<div class="price" v-if="product !== null">{{ product.price }}</div>
-			<div class="taglie">{{ getTaglie }}</div>
-			<!-- <div class="title">{{ product.name }}</div>	 -->
 		</div>
 
 		<Footer></Footer>
@@ -32,35 +77,22 @@
 <script>
 import MainMenu from '@/components/MainMenu.vue';
 import Footer from '@/components/Footer.vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css'
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import SliderProductComponent from '@/components/ProductComponents/SliderProductComponent.vue';
+
 import { database } from '@/classes/database.js';
 
 export default {
 	name: 'ProductView',
-	setup() {
-		const onSwiper = (swiper) => {
-		};
-		const onSlideChange = () => {
-		};
-		return {
-			onSwiper,
-			onSlideChange,
-			modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
-		};
-	},
-	created() {
-		window.addEventListener('resize', this.handleResize);
-	},
 	data() {
 		return {
-			swiperDirection: window.innerWidth > 768 ? 'vertical' : 'horizontal',
-			immagineIngrandita: '../assets/imgs/fototest-1.jpg',
-			product: null
+			product: null,
+			isDropdownOpen: false,
 		};
 	},
 	computed: {
+		dropdownTitle() {
+			return this.isDropdownOpen ? 'Nascondi Dropdown' : 'Mostra Dropdown';
+		},
 		getBrand() {
 			if (this.product) {
 				let filterBrand = this.product.filters.find((f) => f.typeFilter === 1);
@@ -85,14 +117,13 @@ export default {
 						let taglieToExport = [];
 
 						for (let i in filterTaglie.filters) {
-							
+
 							for (let j in taglie.filterData) {
 								if (filterTaglie.filters[i] == taglie.filterData[j].id) {
 									taglieToExport.push(taglie.filterData[j]);
 								}
 							}
 						}
-						console.log(taglieToExport);
 						return taglieToExport;
 					}
 				}
@@ -103,132 +134,96 @@ export default {
 	components: {
 		MainMenu,
 		Footer,
-		Swiper,
-		SwiperSlide
+		SliderProductComponent
 	},
 	mounted() {
 		const db = new database();
 		this.$data.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
 	},
 	methods: {
-		showImage(largeImageUrl) {
-			this.immagineIngrandita = largeImageUrl;
+		toggleDropdown() {
+			this.isDropdownOpen = !this.isDropdownOpen;
 		},
-		handleResize() {
-			this.shouldLoop = window.innerWidth > 768;
-			this.swiperDirection = this.shouldLoop ? 'vertical' : 'horizontal';
-		}
-	},
-	beforeDestroy() {
-		window.removeEventListener('resize', this.handleResize);
-	},
+	}
 }
 </script>
 
 <style scoped>
 /* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'); */
-
-.header-product {
-	width: 80%;
-	margin: auto;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-}
-
-.swiper {
-	display: flex;
-	justify-content: center;
-}
-
-.images-container {
-	height: 175px;
-	width: 80%;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.swiper-container {
-	margin: 10px auto;
-	width: 30%;
-	height: 540px;
-}
-
-.immagine-ingrandita {
-	margin: auto;
-	height: 540px;
-	width: 70%;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
 .product-content-container {
 	width: 100%;
 	height: 600px;
+	padding: 35px 25px;
 }
 
-@media (max-width: 768px) {
-	.header-product {
-		width: 80%;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.swiper-container {
-		width: 80%;
-		height: 100px;
-	}
-
-	.swiper-wrapper {
-		display: flex;
-
-	}
-
-	.images-container {
-		height: 100px;
-		width: 100%;
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
+.text-gray {
+	color: gray;
 }
 
-@media (max-width: 576px) {
-	.header-product {
-		width: 100%;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+.brand,
+.price,
+.taglie {
+	font-size: 15px;
+}
 
-	.swiper-container {
-		width: 80%;
-		height: 100px;
-	}
+.taglie {
+	padding: 10px 0;
+}
 
-	.swiper-wrapper {
-		display: flex;
+.title {
+	font-weight: bold;
+	font-size: 30px;
+	padding: 5px 0;
+}
 
-	}
+.accordionn {
+	margin: 25px auto;
+	width: 100%;
+}
+.accordionn .accordionn-item {
+	width: 100%;
+	padding: 3px 0;
+	border-bottom: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+}
 
-	.images-container {
-		height: 100px;
-		width: 100%;
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
+.accordionn .accordionn-item label{
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	cursor: pointer;
+}
 
-	.immagine-ingrandita {
-		width: 100%;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center center;
-	}
+label::before {
+	content: '+';
+	margin-right: 10px;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+input[type="radio"]{
+	display: none;
+}
+
+.accordionn .content{
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height 0.5s, padding 0.5s;
+
+}
+
+.accordionn input[type="radio"]:checked + label + .content{
+	max-height: 150px;
+	padding: 10px 10px 20px;
+}
+
+.inner-content {
+	width: 100%;
+	margin: 3px 0;
+	font-size: 13px;
+}
+
+.inner-content  {
+
 }
 </style>
