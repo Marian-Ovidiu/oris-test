@@ -121,11 +121,10 @@ export default {
 
 .logo-desktop,
 .logo {
-    background-image: url('../assets/imgs/oris-logo-text.png');
+    background-image: url('../assets/imgs/Nero.png');
     color: black;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: 250%;
+    background-position: center center;
     width: 100px;
     height: 100px;
 }
