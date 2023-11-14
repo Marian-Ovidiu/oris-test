@@ -1,5 +1,5 @@
 <template>
-    <div class="about-header">
+    <div class="about-header" :style="'background-image: url(\''+image+'\')'">
       <div class="about-dark-mask">
         <div class="title-header-about">
           <p>{{title}}</p>
@@ -13,6 +13,7 @@
     name: 'Header',
     props: [
         'title',
+        'image'
     ],
     components: {}
   }
@@ -23,7 +24,8 @@
     font-family: 'Playfair Display', serif;
     width: 100vw;
     height: 250px;  
-    background: linear-gradient(to right, #35424a, #161b1d); /* Cambiato il gradiente di colore */
+    background-position: center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;

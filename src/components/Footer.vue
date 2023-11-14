@@ -131,7 +131,7 @@ export default {
 }
 
 .content-social-section >.item {
-	margin: 10px;
+	margin: 10px 3px;
 }
 
 .item {

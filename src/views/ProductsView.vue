@@ -1,9 +1,8 @@
 <template>
     <MainMenu></MainMenu>
-    <Header :title="'Prodotti'"></Header>
+    <Header :title="'Prodotti'" :image="'../../assets/imgs/header-1.jpeg'"></Header>
 
     <div class="container">
-
         <FilterBar :filters="filters" :selectedFilters="selectedFilters" :selectedFilter="selectedFilter"
             :isPopupOpen="isPopupOpen" @toggle-main-filter-event="toggleMainFilterEvent" ref="getInnerFilters"></FilterBar>
 

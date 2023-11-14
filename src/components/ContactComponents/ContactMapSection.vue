@@ -15,7 +15,7 @@
   export default {
     methods: {
       openGoogleMaps() {
-        const url = 'https://www.google.com/maps?q=DA+ORIS'; // Sostituisci con l'indirizzo del tuo negozio
+        const url = 'https://maps.google.com/maps?ll=44.697483,7.85489&z=16&t=m&hl=it&gl=IT&mapclient=embed&cid=1936107972956221461';
         window.open(url, '_system');
       }
     }

@@ -68,8 +68,26 @@
 					</div>
 				</div>
 			</div>
-		</div>
+				
+			<div class="row">
+				<div class="col-12">
+					<div class="related-title">
+						Potrebbe piacerti anche...
+					</div>
+				</div>
+			</div>
 
+			<div class="row">
+				<div class="col-12">
+					<router-link :to="'/products'" class="show-all">
+						Mostra tutti
+					</router-link>
+				</div>
+			</div>
+			
+			<RelatedSection></RelatedSection>
+
+		</div>
 		<Footer></Footer>
 	</div>
 </template>
@@ -78,6 +96,7 @@
 import MainMenu from '@/components/MainMenu.vue';
 import Footer from '@/components/Footer.vue';
 import SliderProductComponent from '@/components/ProductComponents/SliderProductComponent.vue';
+import RelatedSection from '@/components/ProductComponents/RelatedSection.vue';
 
 import { database } from '@/classes/database.js';
 
@@ -89,6 +108,9 @@ export default {
 			isDropdownOpen: false,
 		};
 	},
+	watch: {
+    	'$route.params.id_product': 'loadProductData'
+  	},
 	computed: {
 		dropdownTitle() {
 			return this.isDropdownOpen ? 'Nascondi Dropdown' : 'Mostra Dropdown';
@@ -134,7 +156,8 @@ export default {
 	components: {
 		MainMenu,
 		Footer,
-		SliderProductComponent
+		SliderProductComponent,
+        RelatedSection
 	},
 	mounted() {
 		const db = new database();
@@ -144,15 +167,18 @@ export default {
 		toggleDropdown() {
 			this.isDropdownOpen = !this.isDropdownOpen;
 		},
+		loadProductData() {
+			const db = new database();
+			this.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
+    	}
 	}
 }
 </script>
 
 <style scoped>
-/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 .product-content-container {
 	width: 100%;
-	height: 600px;
 	padding: 35px 25px;
 }
 
@@ -223,7 +249,18 @@ input[type="radio"]{
 	font-size: 13px;
 }
 
-.inner-content  {
+.related-title {
+	font-family: 'Playfair Display', serif;
+	width: 100%;
+	padding: 5px 10px;
+	font-size: 18px;
+}
 
+.show-all {
+	text-decoration: none;
+	color: darkblue;
+	font-size: 13px;
+	padding: 5px 10px;
+	font-family: 'Playfair Display', serif;
 }
 </style>
