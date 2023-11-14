@@ -121,7 +121,7 @@ export default {
 
 .logo-desktop,
 .logo {
-    background-image: url('../assets/imgs/Nero.png');
+    background-image: url('../assets/imgs/Bianco.png');
     color: black;
     background-size: 250%;
     background-position: center center;
