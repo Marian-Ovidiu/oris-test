@@ -143,6 +143,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 .product-content-container {
+	border-top: 1px solid lightgray;
 	width: 100%;
 	padding: 35px 25px;
 }

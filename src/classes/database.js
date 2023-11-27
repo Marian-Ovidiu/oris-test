@@ -148,7 +148,7 @@ class database {
                 imageUrl: '../assets/imgs/products-imgs/p2-1.jpeg',
                 selected: false,
                 data: {
-                    'composition': {
+                    'Dettagli': {
                         'Composizione': '100% Cotone'
                     }
                 },
@@ -159,17 +159,17 @@ class database {
                         description: ''
                     },
                     {
-                        img: '../assets/imgs/products-imgs/p2-1.jpeg',
+                        img: '../assets/imgs/products-imgs/p2-2.jpeg',
                         text: '',
                         description: ''
                     },
                     {
-                        img: '../assets/imgs/products-imgs/p2-1.jpeg',
+                        img: '../assets/imgs/products-imgs/p2-3.jpeg',
                         text: '',
                         description: ''
                     },
                     {
-                        img: '../assets/imgs/products-imgs/p2-1.jpeg',
+                        img: '../assets/imgs/products-imgs/p2-4.jpeg',
                         text: '',
                         description: ''
                     }

@@ -43,7 +43,7 @@ export default {
 	data() {
 		return {
 			swiperDirection: window.innerWidth > 768 ? 'vertical' : 'horizontal',
-			immagineIngrandita: '../assets/imgs/fototest-1.jpg'
+			immagineIngrandita: this.images[0].img 
 		};
 	},
 	components: {
@@ -68,6 +68,8 @@ export default {
 
 <style scoped>
 .header-product {
+	border-top: 1px solid lightgray;
+	padding-top: 5px;
 	width: 100%;
 	margin: auto;
 	display: flex;
@@ -83,6 +85,7 @@ export default {
 .images-container {
 	height: 175px;
 	width: 80%;
+	margin: 0 5px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
