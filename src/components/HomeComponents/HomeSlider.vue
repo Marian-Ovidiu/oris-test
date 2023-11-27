@@ -37,17 +37,17 @@ export default {
         return {
             sliderImages: [
                 {
-                    img: '../assets/imgs/real-slider-1.jpeg',
+                    img: '../../assets/imgs/slider-imgs/real-slider-1.jpeg',
                     text: 'Testo di test 1',
                     description: 'Mini descrizione'
                 },
                 {
-                    img: '../assets/imgs/real-slider-2.jpeg',
+                    img: '../../assets/imgs/slider-imgs/real-slider-2.jpeg',
                     text: 'Testo di test 2',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '
                 },
                 {
-                    img: '../assets/imgs/real-slider-3.jpeg',
+                    img: '../../assets/imgs/slider-imgs/real-slider-3.jpeg',
                     text: 'Testo di test 1',
                     description: null
                 }
