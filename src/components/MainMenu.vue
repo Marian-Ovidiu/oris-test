@@ -1,7 +1,7 @@
 <template>
-    <div class="nav-menu" :class="this.showMobileMenu ? 'change-bg-black' : ''">
+    <div class="nav-menu" :class="this.showMobileMenu ? 'change-bg-black' : 'black-logo'">
         <div class="menu-bars">
-            <div class="logo-desktop"></div>
+            <div class="logo-desktop" :class="{ 'white-logo': showMobileMenu }"></div>
             <div class="icon">
                 <font-awesome-icon icon="fas fa-bars" class="bars" @click="showMenu()" style=" font-size: 24px;" />
             </div>
@@ -44,7 +44,7 @@
                             <span
                                 class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
                             <span
-                                class="text-size relative transition-colors duration-300 delay-200 group-hover:text-white ease">Prodotti</span>
+                                class="text-size relative transition-colors duration-300 delay-200 group-hover:text-white ease">Catalogo</span>
                         </a>
                     </router-link>
                 </li>
@@ -119,14 +119,28 @@ export default {
 
 }
 
-.logo-desktop,
+.white-logo {
+  background-image: url('../assets/imgs/Bianco.png') !important;
+  color: white !important;
+}
+
+.logo-desktop {
+    background-image: url('../assets/imgs/Nero.png');
+}
+
 .logo {
     background-image: url('../assets/imgs/Bianco.png');
+}
+
+.logo-desktop,
+.logo {
     color: black;
-    background-size: 250%;
-    background-position: center center;
+    /* background-size: 250%; */
+    background-size: 300%;
+    background-position-x: center;
+    background-position-y: 55%;
     width: 100px;
-    height: 100px;
+    height: 50px;
 }
 
 .change-bg-white {
@@ -192,8 +206,13 @@ i {
 @media screen and (min-width: 768px) {
     .nav-content {
         transform: translate(0, 0);
+        margin: 25px 0;
+
     }
 
+    .logo {
+        background-image: url('../assets/imgs/Nero.png');
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -204,7 +223,7 @@ i {
     .menu-bars {
         display: flex;
         justify-content: space-between;
-        justify-items: center;
+        align-items: center;
         width: 100%;
         padding: 10px 30px;
     }

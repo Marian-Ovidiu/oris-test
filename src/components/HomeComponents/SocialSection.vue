@@ -49,7 +49,7 @@ export default {
 .social-custom-container {
     font-family: serif;
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     background-color: #E0E0E0;
 }
 
@@ -65,7 +65,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-top: 10px;
 }
 
 .follow-us-text-container {

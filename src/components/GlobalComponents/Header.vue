@@ -54,6 +54,14 @@
     opacity: 0.8;
     color: white;
   }
+
+
+  @media (min-width: 1200px) {
+    .about-header {
+      height: 400px;  
+    }
+  }
+
 </style>
 
   

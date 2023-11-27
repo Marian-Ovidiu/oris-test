@@ -5,13 +5,14 @@
         </div>
         <div class="contact-description c-section">
             <div class="inner-contact-description">
-                Sappiamo quanto sia importante trovare l'abbigliamento perfetto per ogni occasione, ed è per questo che
+                Sappiamo quanto sia importante il comfort e lo stile che stai cercando, ed è per questo che
                 siamo qui per te.
             </div>
         </div>
         <div class="contact-button c-section">
             <router-link to="/contact" class="inner-contact-button" style="text-decoration: none;">
-                <a style="text-decoration: none;" class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
+                <a style="text-decoration: none;"
+                    class="relative w-10 px-5 py-3 overflow-hidden font-medium text-gray-600 rounded-lg group border-none">
                     <span
                         class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 group-hover:w-full ease border-none"></span>
                     <span
@@ -78,6 +79,7 @@ export default {
 .inner-contact-description {
     width: 75%;
     text-align: center;
+
     margin: auto;
 }
 
@@ -87,8 +89,8 @@ export default {
     padding: 10px 0;
 }
 
-.inner-contact-button > a {
-    text-decoration:none
+.inner-contact-button>a {
+    text-decoration: none
 }
 
 .inner-contact-button {
@@ -102,6 +104,16 @@ export default {
     .c-section {
         width: 100%;
         margin: auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    .inner-contact-description {
+        font-size: 14px;
     }
 }
 </style>

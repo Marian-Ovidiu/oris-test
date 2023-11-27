@@ -72,6 +72,10 @@ export default {
 
 <style scoped>
 
+.logo-desktop {
+    background-image: url('../assets/imgs/Bianco.png');
+}
+
 .justify-align-flex {
 	display: flex;
 	justify-content: center;

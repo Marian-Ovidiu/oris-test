@@ -1,6 +1,6 @@
 <template>
     <MainMenu></MainMenu>
-    <Header :title="'Prodotti'" :image="'../../assets/imgs/header-1.jpeg'"></Header>
+    <Header :title="'Catalogo'" :image="'../../assets/imgs/header-1.jpeg'"></Header>
 
     <div class="container">
         <FilterBar :filters="filters" :selectedFilters="selectedFilters" :selectedFilter="selectedFilter"

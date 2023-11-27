@@ -40,6 +40,7 @@ export default {
 .about-content-container {
     font-family: 'Playfair Display', serif;
     width: 100vw;
+    min-height: calc(100vh - 500px);
     margin: auto;
 }
 
@@ -76,7 +77,7 @@ export default {
 .image-background {
     width: 75%;
     height: 70%;
-    background-image: url('../../assets/imgs/real-slider-1.jpeg');
+    background-image: url('../../assets/imgs/slider-imgs/real-slider-1.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;

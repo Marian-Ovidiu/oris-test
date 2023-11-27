@@ -15,52 +15,16 @@
 								inclusa</span></div>
 						<div class="taglie">
 							<strong>Taglie: </strong>
-							<span v-for="(taglia, index) in getTaglie" :key="index">{{ index === 0 ? taglia.name : '-' +
+							<span v-for="(taglia, index) in getTaglie" :key="index">{{ index === 0 ? taglia.name : ' - ' +
 								taglia.name }} </span>
 						</div>
-						<div class="accordionn">
-							<div class="accordionn-item">
-								<input type="radio" name="accordionn" id="primo">
-								<label for="primo">Composizione</label>
+						<div class="accordionn" v-if="product">
+							<div class="accordionn-item" v-for="(item, index) in product.data" :key="index">
+								<input type="radio" name="accordionn" :id="index">
+								<label :for="index">{{ index }}</label>
 								<div class="content">
-									<div class="inner-content">
-										<strong>Composizione: </strong> 100% cotone	
-									</div>
-									<div class="inner-content">
-										<strong>Fodera: </strong> 100% poliestere	
-									</div>
-									<div class="inner-content">
-										<strong>Avvertenze: </strong> Lavaggio delicati	
-									</div>
-								</div>
-							</div>	
-							<div class="accordionn-item">
-								<input type="radio" name="accordionn" id="secondo">
-								<label for="secondo">Dettagli prodotto</label>
-								<div class="content">
-									<div class="inner-content">
-										<strong>Colletto: </strong> Foderato	
-									</div>
-									<div class="inner-content">
-										<strong>Chiusura: </strong> Cerniera
-									</div>
-									<div class="inner-content">
-										<strong>Fantasia: </strong> Monocromo
-									</div>
-								</div>
-							</div>	
-							<div class="accordionn-item">
-								<input type="radio" name="accordionn" id="terzo">
-								<label for="terzo">Taglia e fit</label>
-								<div class="content">
-									<div class="inner-content">
-										<strong>Vestibilità: </strong> Regolare	
-									</div>
-									<div class="inner-content">
-										<strong>Linea: </strong> Dritta
-									</div>
-									<div class="inner-content">
-										<strong>Fantasia: </strong> Monocromo
+									<div class="inner-content" v-for="(innerItem, key) in product.data[index]" :key="key">
+										<strong>{{key}} </strong> {{ innerItem }}
 									</div>
 								</div>
 							</div>	
@@ -162,6 +126,7 @@ export default {
 	mounted() {
 		const db = new database();
 		this.$data.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
+		console.log(this.$data.product);
 	},
 	methods: {
 		toggleDropdown() {

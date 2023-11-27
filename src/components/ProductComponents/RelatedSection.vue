@@ -10,7 +10,7 @@
 <script>
 
 import ProductRelatedCard from '@/components/GlobalComponents/ProductRelatedCard.vue';
-import { database } from '@/classes/database.js';;
+import { database } from '@/classes/database.js';
 
 export default {
     name: 'RelatedSection',
