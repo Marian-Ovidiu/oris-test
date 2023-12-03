@@ -61,6 +61,10 @@ class database {
                     {
                         id: 10,
                         name: '52'
+                    },
+                    {
+                        id: 11,
+                        name: 'Dai 3 ai 5 Anni'
                     }
                 ]
             },
@@ -85,6 +89,26 @@ class database {
                     {
                         id: 4,
                         name: 'Oltre 50'
+                    }
+                ]
+            },
+            {
+                parentId: 4,
+                label: 'Categorie',
+                selected: false,
+                filterData: [
+                    {
+                        id: 1,
+                        name: 'Uomo'
+                    },
+                    {
+                        id: 2,
+                        name: 'Donna'
+                    },
+                    {
+                        id: 3,
+                        name: 'Bambini'
+
                     }
                 ]
             },
@@ -186,6 +210,88 @@ class database {
                     {
                         typeFilter: 3,
                         filters: [2]
+                    }
+                ]
+            },
+            {
+                productId: 3,
+                name: 'Pigiama bambina',
+                description: 'Pigiama bambina sabor nel colore blu scuro e azzurro',
+                price: '14.00',
+                imageUrl: '../assets/imgs/products-imgs/p3-1.jpeg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/products-imgs/p3-1.jpeg',
+                        text: '',
+                        description: ''
+                    },
+                    {
+                        img: '../assets/imgs/products-imgs/p3-2.jpeg',
+                        text: '',
+                        description: ''
+                    },
+                    {
+                        img: '../assets/imgs/products-imgs/p3-3.jpeg',
+                        text: '',
+                        description: ''
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 4,
+                        filters: [3]
+                    }
+                ]
+            },
+            {
+                productId: 4,
+                name: 'Pigiama bambina',
+                description: 'Pigiama bimba della Sabor con Lilly e il vagabondo nel rosa scuro e rosa chiaro',
+                price: '14.00',
+                imageUrl: '../assets/imgs/products-imgs/p4-1.jpeg',
+                selected: false,
+                images: [
+                    {
+                        img: '../assets/imgs/products-imgs/p4-1.jpeg',
+                        text: '',
+                        description: ''
+                    },
+                    {
+                        img: '../assets/imgs/products-imgs/p4-2.jpeg',
+                        text: '',
+                        description: ''
+                    },
+                    {
+                        img: '../assets/imgs/products-imgs/p4-3.jpeg',
+                        text: '',
+                        description: ''
+                    }
+                ],
+                filters: [
+                    {
+                        typeFilter: 1,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 2,
+                        filters: [11]
+                    },
+                    {
+                        typeFilter: 3,
+                        filters: [2]
+                    },
+                    {
+                        typeFilter: 4,
+                        filters: [3]
                     }
                 ]
             }

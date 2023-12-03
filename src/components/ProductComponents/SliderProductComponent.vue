@@ -3,10 +3,10 @@
         <div class="immagine-ingrandita" :style="'background-image: url(\'' + immagineIngrandita + '\')'"
             id="immagine-ingrandita">
         </div>
-        <Swiper :autoplay="{ delay: 2000 }" :loop="true" :loopAdditionalSlides="2" :modules="modules" navigation
+        <Swiper :autoplay="{ delay: 2000 }" :loop="true" :loopAdditionalSlides="2" :modules="modules" navigation  ref="swiperRef"
             v-if="product !== null" slidesPerView="3" :direction="swiperDirection" :pagination="{ clickable: true }"
             :scrollbar="{ draggable: true }" @swiper="onSwiper" @slideChange="onSlideChange" class="swiper-container">
-            <SwiperSlide :slides-per-view="1" navigation :pagination="{ clickable: true }" v-for="img in images"
+            <SwiperSlide :slides-per-view="1" navigation :pagination="{ clickable: true }" v-for="img in localImages"
                 class="swiper" :key="img">
                 <div class="images-container" :style="'background-image: url(' + img.img + ');'"
                     @click="showImage(img.img)"></div>
@@ -43,9 +43,13 @@ export default {
 	data() {
 		return {
 			swiperDirection: window.innerWidth > 768 ? 'vertical' : 'horizontal',
-			immagineIngrandita: this.images[0].img 
+			immagineIngrandita: this.images[0].img,
+			localImages: this.images
 		};
 	},
+	watch: {
+    	'images': 'updateImages'
+  	},
 	components: {
 		Swiper,
 		SwiperSlide
@@ -57,7 +61,18 @@ export default {
 		handleResize() {
 			this.shouldLoop = window.innerWidth > 768;
 			this.swiperDirection = this.shouldLoop ? 'vertical' : 'horizontal';
-		}
+		},
+		updateImages(data){
+			this.immagineIngrandita = data[0].img;
+			this.localImages = data;
+			this.refreshSwiper()
+		},
+		refreshSwiper() {
+			if (this.$refs.swiperRef && this.$refs.swiperRef.$swiper) {
+				console.log('ciaopp');
+				this.$refs.swiperRef.$swiper.update();
+			}
+		},
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.handleResize);
@@ -105,6 +120,14 @@ export default {
 	background-repeat: no-repeat;
 	background-position: center;
 }
+
+@media (min-width: 769px) {
+	.swiper-slide{
+		height: 33.3%;
+	}
+}
+
+
 @media (max-width: 768px) {
     .header-product {
 		width: 80%;

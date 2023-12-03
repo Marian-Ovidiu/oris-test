@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu.vue'
-import Footer from '@/components/Footer.vue'
+import MainMenu from '@/components/MainMenu.vue';
+import Footer from '@/components/Footer.vue';
 import ProductsSection from '@/components/ProductsComponents/ProductsSection.vue';
 import Header from '@/components/GlobalComponents/Header.vue';
 import FilterBar from '@/components/GlobalComponents/FilterBar.vue';

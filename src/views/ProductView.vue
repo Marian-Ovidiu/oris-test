@@ -13,12 +13,17 @@
 						<div class="title" v-if="product !== null">{{ product.name }}</div>
 						<div class="price" v-if="product !== null">{{ product.price }} € <span class="text-gray">Iva
 								inclusa</span></div>
-						<div class="taglie">
+						<div class="taglie" v-if="getTaglie && getTaglie.length > 0">
 							<strong>Taglie: </strong>
 							<span v-for="(taglia, index) in getTaglie" :key="index">{{ index === 0 ? taglia.name : ' - ' +
 								taglia.name }} </span>
 						</div>
-						<div class="accordionn" v-if="product">
+
+						<div class="description" v-if="product && product.description">
+								{{ product.description }}
+						</div>
+
+						<div class="accordionn" v-if="product !== null && product.data">
 							<div class="accordionn-item" v-for="(item, index) in product.data" :key="index">
 								<input type="radio" name="accordionn" :id="index">
 								<label :for="index">{{ index }}</label>
@@ -114,7 +119,7 @@ export default {
 					}
 				}
 			}
-			return '';
+			return [];
 		},
 	},
 	components: {
@@ -126,7 +131,7 @@ export default {
 	mounted() {
 		const db = new database();
 		this.$data.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
-		console.log(this.$data.product);
+		console.log('ciao');
 	},
 	methods: {
 		toggleDropdown() {
@@ -146,6 +151,12 @@ export default {
 	border-top: 1px solid lightgray;
 	width: 100%;
 	padding: 35px 25px;
+}
+
+.description {
+	padding: 5px 0;
+	font-size: 14px;
+	margin: 10px 0;
 }
 
 .text-gray {

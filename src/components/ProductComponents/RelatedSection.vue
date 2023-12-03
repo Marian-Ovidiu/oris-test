@@ -16,8 +16,21 @@ export default {
     name: 'RelatedSection',
     mounted() {
         const prd = new database();
-        this.$data.products = prd.getProducts();
-        this.$data.productsVisualizzati = prd.getProducts().slice(0, 12);
+        this.$data.productsVisualizzati = prd.getProducts();
+        let  currentIndex = -1;
+        for(let i in this.$data.productsVisualizzati){
+            if(parseInt(this.$data.productsVisualizzati[i].productId) === parseInt(this.$route.params.id_product)){
+                currentIndex = i;
+                break;
+            }
+        }
+
+
+        if(currentIndex !== -1){
+            this.$data.productsVisualizzati.splice(currentIndex, 1);
+        }
+
+        this.$data.productsVisualizzati.slice(0, 12);
     },
     components: {
         ProductRelatedCard
@@ -30,18 +43,28 @@ export default {
             inizio: 12
         };
     },
+    watch: {
+    	'$route.params.id_product': 'updateRelated'
+  	},
     methods: {
-        filteredProductsReceved(filteredProducts) {
-            this.products = filteredProducts;
-            this.productsVisualizzati = filteredProducts.slice(0, 12);
-        },
-        caricaOggettiSuccessivi() {
-            if (this.inizio < this.products.length) {
-                const fine = this.inizio + this.productsPerVolta;
-                this.productsVisualizzati = this.products.slice(0, fine);
-                this.inizio = fine;
+        updateRelated(){
+            const prd = new database();
+            let  currentIndex = -1;
+            let prds= prd.getProducts();
+            for(let i in prds){
+                if(parseInt(prds[i].productId) === parseInt(this.$route.params.id_product)){
+                    currentIndex = i;
+                    break;
+                }
             }
-        },
+
+            console.log(prds);
+            if(currentIndex !== -1){
+              prds.splice(currentIndex, 1);
+            }
+            
+            this.productsVisualizzati = prds.slice(0, 12);
+        }
     }
 }
 </script>
