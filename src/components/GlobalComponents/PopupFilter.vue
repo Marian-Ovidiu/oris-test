@@ -11,8 +11,8 @@
             </div>
 
             <div class="container-fluid">
-                <div class="content-popup row">
-                    <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6" v-for="(f, index) in filter.filterData"
+                <div class="content row">
+                    <div class="col-6 col-sm-6 col-md-6 col-xl-4 col-xxl-4" v-for="(f, index) in filter.filterData"
                         :key="index">
                         <div class="inner-filter" @click="handleFilterChange(f)" :class="f.selected ? 'selected' : ''">
                             {{ f.name }}
@@ -31,6 +31,7 @@
 
 <script>
 import { useFilterStore } from '@/store/FIlterStore';
+import $ from 'jquery';
 
 export default {
     name: 'PopupFilter',
@@ -52,6 +53,10 @@ export default {
         isPopupOpen(isPopupOpen) {
             this.filter = this.filterStore.getSelectedFilter();
             this.localIsPopupOpen = isPopupOpen;
+
+            setTimeout(function(){
+                $('#filter-popup').addClass('show');
+            }, 100)
         },
     },
     computed: {
@@ -65,8 +70,12 @@ export default {
     },
     methods: {
         closePopup() {
-            this.localIsPopupOpen = false;
-            this.$emit('isPopupOpenEvent', this.localIsPopupOpen);
+            $('#filter-popup').addClass('zoom-out');
+
+            setTimeout(() => {
+                this.localIsPopupOpen = false;
+                this.$emit('isPopupOpenEvent', this.localIsPopupOpen);
+            }, 500);
         },
         handleFilterChange(filter) {
             if (this.filterStore.selectedFilters.length > 0) {
@@ -132,8 +141,29 @@ export default {
 </script>
 
 <style scoped>
-.selected {
-    /* background-color: lightgray; */
+
+.filter-popup{
+  position: fixed;
+  inset:0;
+  visibility:hidden;
+  background: rgba(0,0,0,.7);
+  transition: transform 450ms, opacity 850ms;
+}
+
+
+.show {
+  transform: scale(1.1);
+  visibility: visible;
+  opacity: 1;
+}
+
+.zoom-out {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+}
+
+ .selected {
     font-weight: bolder;
     border: 1px solid black !important;
 }
@@ -148,22 +178,21 @@ export default {
 }
 
 .filter-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.popup-content {
+.content{
+    font-size: 14px;
+}
 
-    
+.popup-content {
+    display: flex;
+    flex-direction: column;
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow-y: scroll;
-
     width: 80%;
+    max-width: 450px;
     max-height: 70vh;
     position: absolute;
     top: 50%;
@@ -179,7 +208,7 @@ export default {
     width: 100%;
     height: 50px;
     display: flex;
-   /* background-color: lightgrey;*/
+    font-size: 14px;
 }
 .footer-popup {
   justify-content: center;
@@ -193,12 +222,6 @@ export default {
   padding:10px;
   background-color: #212529;
   color: white;
-}
-
-.content-popup {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px 30px;
 }
 
 .header-title-popup {
@@ -224,10 +247,10 @@ export default {
 }
 
 .inner-filter {
-    height: 45px;
+    height: 40px;
     border: 1px solid lightgray;
     margin: 5px 0;
     text-align: center;
-    line-height: 45px;
-}
+    line-height: 40px;
+} 
 </style>
