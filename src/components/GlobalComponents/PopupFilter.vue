@@ -3,7 +3,7 @@
         <div class="popup-content">
             <div class="header-popup">
                 <div class="header-title-popup">
-                   
+                    {{ filter.label }}
                 </div>
                 <div class="header-close-popup">
                     <font-awesome-icon icon="fa-window-close" class="fa-2x fa-brand close" @click="closePopup" />
@@ -12,12 +12,17 @@
 
             <div class="container-fluid">
                 <div class="content-popup row">
-                    <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6"
-                    v-for="(f, index) in filter.filterData" :key="index">
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6" v-for="(f, index) in filter.filterData"
+                        :key="index">
                         <div class="inner-filter" @click="handleFilterChange(f)" :class="f.selected ? 'selected' : ''">
                             {{ f.name }}
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="footer-popup">
+                <div class="button-popup" @click="closePopup">
+                    {{ countProducts }} prodotti
                 </div>
             </div>
         </div>
@@ -29,9 +34,9 @@ import { useFilterStore } from '@/store/FIlterStore';
 
 export default {
     name: 'PopupFilter',
-    setup: function(){
+    setup: function () {
         const filterStore = useFilterStore();
-        return {filterStore};
+        return { filterStore };
     },
     props: [
         'isPopupOpen',
@@ -49,22 +54,31 @@ export default {
             this.localIsPopupOpen = isPopupOpen;
         },
     },
+    computed: {
+        countProducts() {
+            if(this.filterStore.getSelectedProducts().length > 0){
+                return this.filterStore.getSelectedProducts().length;
+            }
+
+            return this.filterStore.getProducts().length;
+        }
+    },
     methods: {
         closePopup() {
             this.localIsPopupOpen = false;
             this.$emit('isPopupOpenEvent', this.localIsPopupOpen);
         },
         handleFilterChange(filter) {
-            if(this.filterStore.selectedFilters.length > 0){
+            if (this.filterStore.selectedFilters.length > 0) {
 
                 let founded = this.filterStore.selectedFilters.find((f) => parseInt(f.parentId) === parseInt(this.filter.parentId));
-                
-                if(founded){
+
+                if (founded) {
                     let f = null;
-                    for(let i =0; i < this.filterStore.selectedFilters.length; i++ ){
-                        if(parseInt(this.filterStore.selectedFilters[i].parentId) === parseInt(founded.parentId)){
-                            for(let j =0; j < this.filterStore.selectedFilters[i].filters.length; j++ ){
-                                if(parseInt(this.filterStore.selectedFilters[i].filters[j].id) === parseInt(filter.id)){
+                    for (let i = 0; i < this.filterStore.selectedFilters.length; i++) {
+                        if (parseInt(this.filterStore.selectedFilters[i].parentId) === parseInt(founded.parentId)) {
+                            for (let j = 0; j < this.filterStore.selectedFilters[i].filters.length; j++) {
+                                if (parseInt(this.filterStore.selectedFilters[i].filters[j].id) === parseInt(filter.id)) {
                                     filter.selected = false;
                                     this.filterStore.setRemSelectedFilters(parseInt(i), parseInt(j));
                                     f = i;
@@ -74,9 +88,9 @@ export default {
                         }
                     }
 
-                    if(f === null){
-                        for(let i =0; i < this.filterStore.selectedFilters.length; i++ ){
-                            if(parseInt(this.filterStore.selectedFilters[i].parentId) === parseInt(founded.parentId)){                                
+                    if (f === null) {
+                        for (let i = 0; i < this.filterStore.selectedFilters.length; i++) {
+                            if (parseInt(this.filterStore.selectedFilters[i].parentId) === parseInt(founded.parentId)) {
                                 filter.selected = true;
                                 this.filterStore.setAddSelectedChildFilters(i, filter);
                             }
@@ -97,14 +111,14 @@ export default {
                     filters: [filter]
                 });
             }
-            let test= this.filterStore.getSelectedFilters().find((f) => parseInt(f.parentId) ===  parseInt(this.filter.parentId));
+            let test = this.filterStore.getSelectedFilters().find((f) => parseInt(f.parentId) === parseInt(this.filter.parentId));
             this.filterStore.setFilteredProducts(this.applicaFiltri())
         },
         applicaFiltri() {
             return this.filterStore.getProducts().filter(prodotto => {
-                return  this.filterStore.getSelectedFilters().every(filtro => {
+                return this.filterStore.getSelectedFilters().every(filtro => {
                     const filtroProdotto = prodotto.filters.find(p => parseInt(p.typeFilter) === parseInt(filtro.parentId));
-                  
+
                     if (filtroProdotto) {
                         return filtro.filters.some(idFiltro => filtroProdotto.filters.includes(idFiltro.id));
                     } else {
@@ -119,8 +133,9 @@ export default {
 
 <style scoped>
 .selected {
-    background-color: lightgray;
+    /* background-color: lightgray; */
     font-weight: bolder;
+    border: 1px solid black !important;
 }
 
 #filter-popup.container-fluid:first-child {
@@ -142,7 +157,14 @@ export default {
 }
 
 .popup-content {
+
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+
     width: 80%;
+    max-height: 70vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -153,11 +175,24 @@ export default {
     text-align: center;
 }
 
-.header-popup {
+.header-popup, .footer-popup {
     width: 100%;
     height: 50px;
     display: flex;
-    background-color: lightgrey;
+   /* background-color: lightgrey;*/
+}
+.footer-popup {
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+
+}
+
+.button-popup {
+  width: 200px;
+  padding:10px;
+  background-color: #212529;
+  color: white;
 }
 
 .content-popup {
@@ -168,6 +203,11 @@ export default {
 
 .header-title-popup {
     width: 75%;
+}
+
+.header-title-popup > span {
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 .header-close-popup {

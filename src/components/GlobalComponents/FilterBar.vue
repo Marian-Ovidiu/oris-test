@@ -138,8 +138,8 @@ export default {
 }
 
 .selected {
-    background-color: #d3d3d3;
     font-weight: bolder;
+    border: 1px solid black !important;
 }
 
 .filter-container, .inner-filter-container {
