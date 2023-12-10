@@ -1,15 +1,14 @@
 <template>
     <MainMenu></MainMenu>
-    <Header :title="'Catalogo'" :image="'../../assets/imgs/header-1.jpeg'"></Header>
+    <Header :title="'Catalogo'" :image="'../../assets/imgs/header-imgs/header-1.jpeg'"></Header>
 
     <div class="container">
-        <FilterBar :filters="filters" :selectedFilters="selectedFilters" :selectedFilter="selectedFilter"
-            :isPopupOpen="isPopupOpen" @toggle-main-filter-event="toggleMainFilterEvent" ref="getInnerFilters"></FilterBar>
+        <FilterBar :isPopupOpen="isPopupOpen" @toggle-main-filter-event="toggleMainFilterEvent" ref="getInnerFilters"></FilterBar>
 
-        <div class="row" v-if="filteredProducts.length > 0">
+        <div class="row">
             <div class="col-12 items-counter">
                 <div class="counter">
-                    <span>{{ filteredProducts.length }} articoli</span>
+                    <span>{{ countProducts }} articoli</span>
                 </div>
             </div>
         </div>
@@ -18,9 +17,7 @@
         </div>
     </div>
     <Footer></Footer>
-    <FilterPopup :isPopupOpen="isPopupOpen" :selectedFilter="selectedFilter" :selected-filters="selectedFilters"
-        :products="products" @filtered-products-receved="filteredProductsRecevedFunction"
-        @is-popup-open-event="isPopupOpenEvent" ref="getFilteredProducts"></FilterPopup>
+    <PopupFilter :isPopupOpen="isPopupOpen"  @is-popup-open-event="isPopupOpenEvent" ></PopupFilter>
 </template>
 
 <script>
@@ -29,25 +26,25 @@ import Footer from '@/components/Footer.vue';
 import ProductsSection from '@/components/ProductsComponents/ProductsSection.vue';
 import Header from '@/components/GlobalComponents/Header.vue';
 import FilterBar from '@/components/GlobalComponents/FilterBar.vue';
-import FilterPopup from '@/components/GlobalComponents/FilterPopup.vue';
-
-import { database } from '@/classes/database.js';
+import PopupFilter from '@/components/GlobalComponents/PopupFilter.vue';
+import { useFilterStore } from '@/store/FIlterStore';
 
 export default {
     name: 'ProductsView',
+    setup: function(){
+        const filterStore = useFilterStore();
+        return {filterStore};
+    },
     mounted() {
-        const db = new database();
-        this.$data.filters = db.getFilters();
-        this.$data.products = db.getProducts();
-        this.$data.filteredProducts = db.getProducts();
+        this.filterStore.setData();
     },
     components: {
         MainMenu,
         Footer,
         Header,
         ProductsSection,
-        FilterPopup,
-        FilterBar
+        FilterBar,
+        PopupFilter
     },
     data() {
         return {
@@ -58,6 +55,15 @@ export default {
             selectedFilters: [],
             filteredProducts: []
         };
+    },
+    computed: {
+        countProducts() {
+            if(this.filterStore.getSelectedProducts().length > 0){
+                return this.filterStore.getSelectedProducts().length;
+            }
+
+            return this.filterStore.getProducts().length;
+        }
     },
     methods: {
         filteredProductsRecevedFunction(data) {
@@ -79,8 +85,6 @@ export default {
             this.$refs.getInnerFilters.getInnerFilters();
         },
         toggleMainFilterEvent(data) {
-            this.selectedFilter = data.selectedFilter;
-            this.selectedFilters = data.selectedFilters;
             this.isPopupOpen = data.isPopupOpen
         },
         isPopupOpenEvent(data) {

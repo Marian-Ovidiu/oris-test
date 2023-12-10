@@ -69,7 +69,6 @@ export default {
 		},
 		refreshSwiper() {
 			if (this.$refs.swiperRef && this.$refs.swiperRef.$swiper) {
-				console.log('ciaopp');
 				this.$refs.swiperRef.$swiper.update();
 			}
 		},

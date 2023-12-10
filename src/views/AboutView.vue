@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <MainMenu></MainMenu>
-    <Header :title="'Su di noi'"  :image="'../../assets/imgs/header-2.jpeg'"></Header>
+    <Header :title="'Su di noi'"  :image="'../../assets/imgs/header-imgs/header-2.jpeg'"></Header>
     <AboutContentSection></AboutContentSection>
     <Footer></Footer>
   </div>

@@ -1,10 +1,10 @@
 <template>
     <div class="row">
         <div class="col-12 filter-container">
-            <div class="filter" v-for="(filter, index) in localFilters" :key="index"
+            <div class="filter" v-for="(filter, index) in filterStore.getFilters()" :key="index"
                 :class="{ 'selected': filter.selected }" @click="toggleMainFilter(filter)">
                 <div class="label"> {{ filter.label }}</div>
-                <div v-if="filter.childFiltersCounter" class="filter-counter">{{ filter.childFiltersCounter }}</div>
+                <div class="filter-counter">{{ countFilters(filter) }}</div>
             </div>
         </div>
     </div>
@@ -21,48 +21,38 @@
 
 
 <script>
+import { useFilterStore } from '@/store/FIlterStore';
+
 export default {
     name: 'FilterBar',
     emits: ['toggleMainFilterEvent'],
     props: [
-        'filters',
-        'selectedFilter',
-        'selectedFilters',
         'isPopupOpen'
     ],
+    setup: function(){
+        const filterStore = useFilterStore();
+        return {filterStore};
+    },
     data() {
         return {
-            localFilters: this.filters,
-            localSelectedFilter: this.selectedFilter,
-            localSelectedFilters: this.selectedFilters,
             localIsPopupOpen: this.isPopupOpen
         }
     },
     watch: {
         isPopupOpen(data) {
             this.localIsPopupOpen = data;
-        },
-        filters: {
-            immediate: true,
-            handler(newFilters) {
-                this.localFilters = newFilters;
-            }
-        },
-        selectedFilters(data) {
-            this.localSelectedFilters = data;
         }
     },
     computed: {
         innerFilters() {
             let innerFilters = [];
-            if (this.selectedFilters.length > 0) {
-                for (let i in this.selectedFilters) {
-                    if ('childFilters' in this.selectedFilters[i] && this.selectedFilters[i].childFilters.length > 0) {
-                        for (let j in this.selectedFilters[i].childFilters) {
-                            let innerFilter = this.selectedFilters[i].childFilters[j];
-                            innerFilter.parentId = this.selectedFilters[i].parentId;
-                            innerFilters.push(innerFilter);
-                        }
+            let selectedFilters = this.filterStore.getSelectedFilters()
+            if (selectedFilters.length > 0) {
+                for (let i in selectedFilters) {
+                    for (let j in selectedFilters[i].filters) {
+                        let innerFilter = selectedFilters[i].filters[j];
+                        innerFilter.parentId = selectedFilters[i].parentId;
+                        innerFilters.push(innerFilter);
                     }
                 }
             }
@@ -72,31 +62,14 @@ export default {
             }
 
             return [];
-        },
+        }
     },
     methods: {
         toggleMainFilter(filter) {
-            this.localSelectedFilter = filter;
-
-            let selected = this.localSelectedFilters.find((f) => f.parentId === filter.parentId);
-
-            if (!selected) {
-                this.localSelectedFilters.push(filter);
-            }
-
-            selected = this.localSelectedFilters.find((f) => f.parentId === filter.parentId);
-
-            if ('childFilters' in selected && selected.childFilters.length > 0) {
-                filter.selected = true;
-            } else {
-                filter.selected = false;
-            }
-
+            this.filterStore.selectedFilter = filter;
             this.localIsPopupOpen = true;
 
             this.$emit('toggleMainFilterEvent', {
-                selectedFilter: this.localSelectedFilter,
-                selectedFilters: this.localSelectedFilters,
                 isPopupOpen: this.localIsPopupOpen
             });
         },
@@ -104,9 +77,52 @@ export default {
             return this.innerFilters;
         },
         deleteInnerFilter(innerFilter) {
-            innerFilter.selected = false;
-            const parentComponent = this.$parent;
-            parentComponent.deleteInnerFilter(innerFilter);
+            let index = -1;
+            for(let i =0; i < this.filterStore.selectedFilters.length; i++ ){
+                if(parseInt(this.filterStore.selectedFilters[i].parentId) === parseInt(innerFilter.parentId)){
+                    index=i;
+                    break;
+                }
+            }
+
+            if(index !== -1){
+                let indexChild = -1;
+                for(let i =0; i < this.filterStore.selectedFilters[index].filters.length; i++ ){
+                    if(parseInt(this.filterStore.selectedFilters[index].filters[i].id) === parseInt(innerFilter.id)){
+                        indexChild = i;
+                        break;
+                    }
+                }
+
+                if(indexChild !== -1){
+                    innerFilter.selected = false;
+                    this.filterStore.setRemSelectedFilters(parseInt(index), parseInt(indexChild));
+                    this.filterStore.setFilteredProducts(this.applicaFiltri())
+                }
+
+            }
+        },
+        applicaFiltri() {
+            return this.filterStore.getProducts().filter(prodotto => {
+                return  this.filterStore.getSelectedFilters().every(filtro => {
+                    const filtroProdotto = prodotto.filters.find(p => parseInt(p.typeFilter) === parseInt(filtro.parentId));
+                  
+                    if (filtroProdotto) {
+                        return filtro.filters.some(idFiltro => filtroProdotto.filters.includes(idFiltro.id));
+                    } else {
+                        return false;
+                    }
+                });
+            })
+        },
+        countFilters(data){
+            let filter = this.filterStore.getSelectedFilters().find((f) => parseInt(f.parentId) === parseInt(data.parentId));
+            
+            if(filter && filter.countSelected !== 'undefined'){
+                return filter.countSelected;
+            }
+
+            return null;
         }
     }
 }

@@ -243,6 +243,10 @@ class database {
                         filters: [2]
                     },
                     {
+                        typeFilter: 2,
+                        filters: [11]
+                    },
+                    {
                         typeFilter: 3,
                         filters: [2]
                     },

@@ -1,7 +1,7 @@
 <template>
     <div class="contact">
         <MainMenu></MainMenu>
-        <Header :title="'Contatti'" :image="'../../assets/imgs/header-3.jpeg'"></Header>
+        <Header :title="'Contatti'" :image="'../../assets/imgs/header-imgs/header-3.jpeg'"></Header>
         <ContactContentSection></ContactContentSection>
         <!-- <div class="contact-form-container">
             <div class="row">

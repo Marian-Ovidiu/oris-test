@@ -10,13 +10,18 @@
 <script>
 
 import ProductRelatedCard from '@/components/GlobalComponents/ProductRelatedCard.vue';
-import { database } from '@/classes/database.js';
+import { useFilterStore } from '@/store/FIlterStore';
 
 export default {
     name: 'RelatedSection',
+    setup: function(){
+        const filterStore = useFilterStore();
+        return {filterStore};
+    },
     mounted() {
-        const prd = new database();
-        this.$data.productsVisualizzati = prd.getProducts();
+        this.filterStore.setData();
+        this.$data.productsVisualizzati = JSON.parse(JSON.stringify(this.filterStore.getProducts()));
+
         let  currentIndex = -1;
         for(let i in this.$data.productsVisualizzati){
             if(parseInt(this.$data.productsVisualizzati[i].productId) === parseInt(this.$route.params.id_product)){
@@ -48,9 +53,8 @@ export default {
   	},
     methods: {
         updateRelated(){
-            const prd = new database();
             let  currentIndex = -1;
-            let prds= prd.getProducts();
+            let prds  =  JSON.parse(JSON.stringify(this.filterStore.getProducts()));
             for(let i in prds){
                 if(parseInt(prds[i].productId) === parseInt(this.$route.params.id_product)){
                     currentIndex = i;
@@ -58,11 +62,10 @@ export default {
                 }
             }
 
-            console.log(prds);
             if(currentIndex !== -1){
               prds.splice(currentIndex, 1);
             }
-            
+
             this.productsVisualizzati = prds.slice(0, 12);
         }
     }

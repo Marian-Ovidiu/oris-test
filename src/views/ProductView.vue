@@ -66,11 +66,17 @@ import MainMenu from '@/components/MainMenu.vue';
 import Footer from '@/components/Footer.vue';
 import SliderProductComponent from '@/components/ProductComponents/SliderProductComponent.vue';
 import RelatedSection from '@/components/ProductComponents/RelatedSection.vue';
-
-import { database } from '@/classes/database.js';
+import { useFilterStore } from '@/store/FIlterStore';
 
 export default {
 	name: 'ProductView',
+	setup: function(){
+        const filterStore = useFilterStore();
+        return {filterStore};
+    },
+	mounted() {
+		this.$data.product = this.filterStore.getProductById(this.$route.params.id_product);
+	},
 	data() {
 		return {
 			product: null,
@@ -88,8 +94,7 @@ export default {
 			if (this.product) {
 				let filterBrand = this.product.filters.find((f) => f.typeFilter === 1);
 				if (filterBrand) {
-					const db = new database();
-					let brand = db.getFilters().find((f) => f.parentId === 1);
+					let brand = this.filterStore.getFilterById(1);
 					if (brand) {
 						brand = brand.filterData.find((f) => f.id === filterBrand.filters[0])
 						return brand.name;
@@ -102,8 +107,7 @@ export default {
 			if (this.product) {
 				let filterTaglie = this.product.filters.find((f) => f.typeFilter === 2);
 				if (filterTaglie) {
-					const db = new database();
-					let taglie = db.getFilters().find((f) => f.parentId === 2);
+					let taglie = this.filterStore.getFilterById(2);
 					if (taglie) {
 						let taglieToExport = [];
 
@@ -128,18 +132,12 @@ export default {
 		SliderProductComponent,
         RelatedSection
 	},
-	mounted() {
-		const db = new database();
-		this.$data.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
-		console.log('ciao');
-	},
 	methods: {
 		toggleDropdown() {
 			this.isDropdownOpen = !this.isDropdownOpen;
 		},
 		loadProductData() {
-			const db = new database();
-			this.product = db.getProducts().find((f) => f.productId == this.$route.params.id_product);
+			this.product = this.filterStore.getProductById(this.$route.params.id_product);
     	}
 	}
 }
